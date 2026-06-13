@@ -88,6 +88,8 @@ export default function Gate({ children }) {
       const candidate = await sha256Hex(`${ACCESS_SALT}:${pw}`)
       if (candidate === ACCESS_HASH) {
         logLogin(name)
+        // remember who signed in so performance telemetry can tag events
+        try { localStorage.setItem('ol-user', name.trim()) } catch {}
         setAuthed(true)
       } else {
         setError('That access code didn’t match. Check with your instructor.')
