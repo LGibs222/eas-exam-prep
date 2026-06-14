@@ -28,7 +28,7 @@ import { useEffect, useRef, useState } from 'react'
 const ACCESS_SALT = 'onelove-eas'
 const ACCESS_HASH = 'ed9193c0a9234a746f9cbf3db90122d7d0b2784db4e1c657583ab1cf2721c326'
 const APP_NAME = 'EAS'
-const LOG_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzPJa2EKhCGep6WRsbqWjq_eHBx-wQ58p92KkkiayzvHjFkCekaHRFlyk0FVvECd-ckjg/exec'
+const LOG_ENDPOINT = 'https://script.google.com/macros/s/AKfycby5bv49s8z-oA525hit-LnvfgHDam4hUrSmsN79huqC-rnxMFJpB7QbI0isnjdjxQ/exec'
 
 async function sha256Hex(s) {
   const bytes = new TextEncoder().encode(s)

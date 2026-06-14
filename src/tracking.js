@@ -7,7 +7,7 @@
 // To wire up: deploy tracking-backend.gs as a web app and paste its /exec
 // URL below. Until then, telemetry is silently disabled (local progress and
 // the My Progress screen still work — they read device state, not the wire).
-const TRACK_ENDPOINT = 'PASTE_TRACKING_ENDPOINT'
+const TRACK_ENDPOINT = 'https://script.google.com/macros/s/AKfycby5bv49s8z-oA525hit-LnvfgHDam4hUrSmsN79huqC-rnxMFJpB7QbI0isnjdjxQ/exec'
 const APP_ID = 'EAS'
 
 // The name entered at the access gate — stored by Gate.jsx on sign-in.
