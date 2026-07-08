@@ -11,7 +11,7 @@ import { useEffect, useRef, useState } from 'react'
  * To CHANGE THE PASSWORD:
  *   1. Pick a new password.
  *   2. In your terminal (the string before the colon MUST equal ACCESS_SALT below):
- *        node -e "const c=require('crypto');console.log(c.createHash('sha256').update('onelove-swd:NEW_PASSWORD_HERE').digest('hex'))"
+ *        node -e "const c=require('crypto');console.log(c.createHash('sha256').update('onelove-eas:NEW_PASSWORD_HERE').digest('hex'))"
  *   3. Paste the resulting 64-char hex string into ACCESS_HASH below.
  *   4. Commit + push. Never write the plaintext password in this file —
  *      the repo is public.

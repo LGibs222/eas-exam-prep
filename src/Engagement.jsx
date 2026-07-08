@@ -20,7 +20,7 @@ export function QuickCheck({ quickCheck, onRate, color = '#5b21b6' }) {
   return (
     <div style={{
       marginTop: 18,
-      background: `linear-gradient(135deg, ${color}10 0%, ${color}05 100%)`,
+      background: `linear-gradient(135deg, ${color}10 0%, ${color}05 100%), var(--surface-solid, #fff)`,
       border: `1.5px solid ${color}40`,
       borderRadius: 12,
       padding: '14px 16px',
@@ -31,7 +31,7 @@ export function QuickCheck({ quickCheck, onRate, color = '#5b21b6' }) {
       }}>
         <span>🧠</span><span>Quick Check · Active Recall</span>
       </div>
-      <p style={{ fontSize: 14, lineHeight: 1.55, color: '#1f2937', margin: '0 0 12px', fontWeight: 500 }}>
+      <p style={{ fontSize: 14, lineHeight: 1.55, color: 'var(--text, #1f2937)', margin: '0 0 12px', fontWeight: 500 }}>
         {quickCheck.prompt}
       </p>
 
@@ -59,15 +59,15 @@ export function QuickCheck({ quickCheck, onRate, color = '#5b21b6' }) {
       ) : (
         <>
           <div style={{
-            background: '#fff', border: `1px solid ${color}30`, borderRadius: 10,
-            padding: '12px 14px', fontSize: 13.5, lineHeight: 1.6, color: '#111827',
+            background: 'var(--surface-solid, #fff)', border: `1px solid ${color}30`, borderRadius: 10,
+            padding: '12px 14px', fontSize: 13.5, lineHeight: 1.6, color: 'var(--text, #111827)',
             marginBottom: 10,
           }}>
             <strong style={{ color }}>Answer:</strong> {quickCheck.answer}
           </div>
           {!rated ? (
             <div>
-              <div style={{ fontSize: 11, fontWeight: 700, color: '#6b7280', marginBottom: 6, textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+              <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--muted, #6b7280)', marginBottom: 6, textTransform: 'uppercase', letterSpacing: '0.06em' }}>
                 Honest self-check:
               </div>
               <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
@@ -88,7 +88,7 @@ export function QuickCheck({ quickCheck, onRate, color = '#5b21b6' }) {
               </div>
             </div>
           ) : (
-            <div style={{ fontSize: 12, color: '#6b7280', fontStyle: 'italic' }}>
+            <div style={{ fontSize: 12, color: 'var(--muted, #6b7280)', fontStyle: 'italic' }}>
               ✓ Marked. {rated === 'got-it' ? 'Mastery updated.' : rated === 'almost' ? "We'll resurface this." : "Flagged for re-review."}
             </div>
           )}
@@ -442,10 +442,10 @@ export function MasteryMap({ domain, concepts, progress, onJumpTo, color = '#5b2
         display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
         marginBottom: 10, gap: 8, flexWrap: 'wrap',
       }}>
-        <div style={{ fontSize: 11, fontWeight: 800, color: '#6b7280', textTransform: 'uppercase', letterSpacing: '0.07em' }}>
+        <div style={{ fontSize: 11, fontWeight: 800, color: 'var(--muted, #6b7280)', textTransform: 'uppercase', letterSpacing: '0.07em' }}>
           🗺️ Mastery Map
         </div>
-        <div style={{ fontSize: 11, color: '#6b7280' }}>
+        <div style={{ fontSize: 11, color: 'var(--muted, #6b7280)' }}>
           <span style={{ color: '#15803d', fontWeight: 700 }}>{stats.mastered} mastered</span>
           {' · '}<span>{stats.viewed} in progress</span>
           {' · '}<span style={{ color: '#9ca3af' }}>{stats.untouched} new</span>
@@ -477,7 +477,7 @@ export function MasteryMap({ domain, concepts, progress, onJumpTo, color = '#5b2
         })}
       </div>
 
-      <div style={{ display: 'flex', gap: 14, justifyContent: 'center', marginTop: 10, fontSize: 10, color: '#6b7280', flexWrap: 'wrap' }}>
+      <div style={{ display: 'flex', gap: 14, justifyContent: 'center', marginTop: 10, fontSize: 10, color: 'var(--muted, #6b7280)', flexWrap: 'wrap' }}>
         <span><span style={{ color: '#15803d' }}>✓</span> Mastered</span>
         <span><span style={{ color: '#ca8a04' }}>~</span> Almost</span>
         <span><span style={{ color: '#b91c1c' }}>↻</span> Review needed</span>

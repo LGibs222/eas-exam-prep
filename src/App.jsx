@@ -2176,7 +2176,7 @@ const OneLoveFooter = () => (
       <OneLoveLogo height={22} dark={false}/>
       <div style={{ ...baseStyles.cap, fontSize: 9, color: T.muted }}>Behavior Analysts, PLLC</div>
       <p style={{ fontFamily: T.sans, fontSize: 11, lineHeight: 1.55, color: T.muted, margin: 0, maxWidth: 640 }}>
-        OneLove Behavior Analysts, PLLC is not affiliated with, endorsed by, or sponsored by the New York State Education Department or the Evaluation Systems group of Pearson. NYSTCE® and CST® are registered marks of their respective owners. This practice tool is provided for educational purposes only and does not guarantee passage of any New York State teacher certification examination.
+        OneLove Behavior Analysts, PLLC is not affiliated with, endorsed by, or sponsored by the New York State Education Department or the Evaluation Systems group of Pearson. NYSTCE® is a registered mark of its respective owner. This practice tool is provided for educational purposes only and does not guarantee passage of any New York State teacher certification examination.
       </p>
     </div>
   </footer>
@@ -2233,6 +2233,7 @@ const NavBar = ({ st, onNav, onReset, onConfirmReset, onCancelReset, onToggleThe
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexShrink: 0 }}>
           <button onClick={onToggleTheme} title={st.theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+            aria-label={st.theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
             style={{ padding: '4px 9px', borderRadius: 99, border: '1px solid rgba(246,239,224,0.2)', background: 'transparent', color: '#f0e7d6', cursor: 'pointer', fontSize: 13, lineHeight: 1 }}>
             {st.theme === 'dark' ? '☀️' : '🌙'}
           </button>
@@ -2349,7 +2350,8 @@ const QuestionScreen = ({ questions, answers, qIndex, onAnswer, onNav, onSubmit,
         <span style={{ fontFamily: T.sans, fontSize: 13, color: T.muted, fontWeight: 600 }}>Question {qIndex + 1} of {total}</span>
       </div>
       <div style={{ ...baseStyles.cap, fontSize: 10, color: T.muted, marginBottom: 14 }}>{q.d}</div>
-      <div style={{ height: 6, background: 'var(--border)', borderRadius: 99, marginBottom: 26, overflow: 'hidden' }}>
+      <div role="progressbar" aria-valuenow={qIndex + 1} aria-valuemin={1} aria-valuemax={total} aria-label={`Question ${qIndex + 1} of ${total}`}
+        style={{ height: 6, background: 'var(--border)', borderRadius: 99, marginBottom: 26, overflow: 'hidden' }}>
         <div style={{ width: `${((qIndex + 1) / total) * 100}%`, height: '100%', background: T.orange, borderRadius: 99, transition: 'width .3s' }} />
       </div>
       <Card style={{ marginBottom: 18, padding: '22px 24px' }}>
