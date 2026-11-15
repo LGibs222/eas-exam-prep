@@ -50,7 +50,7 @@ const SUBTESTS = {
   },
   "C4": {
     "label": "Teacher Responsibilities & School–Home Relationships",
-    "roman": "IV"
+    "roman": "IV & V"
   }
 };
 
@@ -61,7 +61,7 @@ const WELCOME = {
     "italic": "Students",
     "post": ""
   },
-  "subtitle": "A complete preparation course for the NYSTCE Educating All Students (EAS, field 201) test — four competencies, forty selected-response items, and three constructed-response assignments.",
+  "subtitle": "A complete preparation course for the NYSTCE Educating All Students (EAS, field 201) test: five competencies, forty selected-response items, and three constructed-response assignments.",
   "alignment": [
     "NYSTCE EAS 201 Framework",
     "Diverse Learners · ELLs · SWD",
@@ -70,7 +70,7 @@ const WELCOME = {
   "steps": [
     [
       "Take the Pretest",
-      "Thirty questions across the four competencies establish your baseline."
+      "Thirty questions across all five competencies establish your baseline."
     ],
     [
       "Review Your Results",
@@ -82,12 +82,12 @@ const WELCOME = {
     ],
     [
       "Take the Post-Test",
-      "Thirty fresh questions measure your growth — then drill the three written assignments."
+      "Thirty fresh questions measure your growth. Then drill the three written assignments."
     ]
   ],
-  "subareasHeading": "The Four Competencies",
+  "subareasHeading": "The Five Competencies",
   "subareaWord": "Competency",
-  "posttestIntro": "fresh questions across the four competencies. Demonstrate the growth of your study.",
+  "posttestIntro": "fresh questions across the five competencies. Demonstrate the growth of your study.",
   "crSubtitle": "Three scenario-based written assignments · identify, describe, explain",
   "colophon": "Built by OneLove Behavior Analysts, PLLC as an independent study aid for the NYSTCE Educating All Students (EAS) test, aligned to the official EAS (field 201) test framework.",
   "testFacts": {
@@ -143,12 +143,16 @@ const WELCOME = {
           ],
           [
             "Teacher Responsibilities",
-            "16% SR"
+            "8% SR"
+          ],
+          [
+            "School-Home Relationships",
+            "8% SR"
           ]
         ]
       }
     ],
-    "note": "Constructed-response assignments are distributed across the first three competencies (one each). Figures reflect the official EAS (201) test design."
+    "note": "Constructed-response assignments come from the first three competencies (one each). Competencies IV and V are selected-response only and are studied together in this course. Figures reflect the official EAS (201) test design."
   }
 };
 
@@ -3544,7 +3548,7 @@ const buildQuizPool = () => {
 const MOCK_SR_COUNT = 40;
 const MOCK_CR_IDS = ['cr-diverse', 'cr-ell', 'cr-swd']; // mirrors the real 3-CR sitting (one per C1/C2/C3)
 const MOCK_TIME_SECONDS = 2 * 3600 + 15 * 60; // 8100s = 2h15m
-const MOCK_WEIGHTS = { C1: 11, C2: 11, C3: 9, C4: 9 }; // sums to 40, framework-aligned
+const MOCK_WEIGHTS = { C1: 10, C2: 10, C3: 11, C4: 9 }; // sums to 40: I-III are 18% SR each (~10.3 items), IV+V are 16% SR (~9.1)
 const buildMockSR = () => {
   const bySub = {};
   Object.entries(MODULES).forEach(([d, mod]) => {
