@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { MasteryMap } from './Engagement.jsx'
 import { playTTSAsync, stopTTS, setTTSRate } from './TTS.jsx'
-import { mediaFor } from './lessonMedia.jsx'
+import { mediaFor, DiagramHost } from './lessonMedia.jsx'
 import './lesson.css'
 
 // Lesson player: a concept is taught one idea per screen.
@@ -203,7 +203,7 @@ export default function LessonPlayer({ domain, concepts, enhancements, lessons, 
   const rateConcept = r => onConceptRate?.(ci, r)
   const sortDone = r => { if (r.correct === r.total && !rating) onConceptRate?.(ci, 'got-it') }
   const say = i => (active === i ? ' speaking' : '')
-  const Diagram = media?.Diagram
+  const hasDiagram = !!media?.Diagram
 
   const header = (
     <>
@@ -227,7 +227,7 @@ export default function LessonPlayer({ domain, concepts, enhancements, lessons, 
           <span className="lp-eyebrow">{domain}</span>
           <h2 className="lp-title">{concept.title}</h2>
           {lesson.lead && <p className="lp-lead">{lesson.lead}</p>}
-          {Diagram && <figure><Diagram step={media.finalStep} /></figure>}
+          {hasDiagram && <figure><DiagramHost media={media} step={media.finalStep} /></figure>}
           <div className="lp-beats">
             {lesson.beats.map((b, i) => (
               <div className="lp-beat" key={i}><div>{b.head && <p style={{ fontWeight: 800, marginBottom: 6 }}>{b.head}</p>}<BeatText text={b.text} /></div></div>
@@ -262,13 +262,17 @@ export default function LessonPlayer({ domain, concepts, enhancements, lessons, 
     )
   } else if (step.k === 'beat') {
     const b = lesson.beats[step.i], hasHead = !!b.head
+    // A diagram is built up across the screens it belongs to and hidden on
+    // screens where steps[i] is null.
+    const dStep = hasDiagram ? (media.steps ? media.steps[step.i] : media.finalStep) : null
+    const showDia = dStep != null
     screen = (
       <div className="lp-screen lp-teach" key={`${ci}-beats`}>
-        {Diagram && <Diagram step={media.steps?.[step.i] ?? media.finalStep} />}
+        {showDia && <DiagramHost media={media} step={dStep} focus={media.focus?.[step.i] || null} />}
         <div className="lp-beatwrap" key={step.i}>
-          {!Diagram && <span className="lp-eyebrow lp-kicker">{concept.title}</span>}
+          {!showDia && <span className="lp-eyebrow lp-kicker">{concept.title}</span>}
           {hasHead && <h3 className={'lp-head' + say(0)} data-say>{b.head}</h3>}
-          <BeatText text={b.text} solo={!hasHead && !Diagram} speaking={active === (hasHead ? 1 : 0)} />
+          <BeatText text={b.text} solo={!hasHead && !showDia} speaking={active === (hasHead ? 1 : 0)} />
         </div>
       </div>
     )

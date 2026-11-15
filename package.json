@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "lessons": "node scripts/build-lessons.cjs --strict",
-    "prebuild": "node scripts/build-lessons.cjs --strict",
+    "prebuild": "node scripts/build-lessons.cjs --strict && node scripts/check-media.cjs",
     "build": "vite build",
     "preview": "vite preview"
   },
