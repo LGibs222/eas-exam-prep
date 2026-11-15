@@ -164,7 +164,7 @@ const PRETEST = [
     "a": [
       "Contact families to explain that verbal participation in class is required for success.",
       "Refer students to the school counselor to investigate whether anxiety is limiting participation.",
-      "Incorporate varied participation structures — partner talk, small groups, written responses — to honor diverse cultural communication norms.",
+      "Incorporate varied participation structures, such as partner talk, small groups, and written responses, to honor diverse cultural communication norms.",
       "Continue whole-class discussion as the primary participation structure, since comfort speaking before the full group is what later grades and standardized testing situations will demand of these students."
     ],
     "c": 2,
@@ -246,7 +246,7 @@ const PRETEST = [
       "Reduce anxiety for all students by communicating high expectations."
     ],
     "c": 2,
-    "r": "The correct answer is right because Steele and Aronson's stereotype threat research demonstrates that merely invoking group-based stereotypes — even to refute them — can activate the threat and suppress performance for targeted students. The strongest distractor is wrong: it incorrectly assumes that positive framing neutralizes the effect of raising the stereotype in the first place."
+    "r": "The correct answer is right because Steele and Aronson's stereotype threat research demonstrates that merely invoking group-based stereotypes, even to refute them, can activate the threat and suppress performance for targeted students. The strongest distractor is wrong: it incorrectly assumes that positive framing neutralizes the effect of raising the stereotype in the first place."
   },
   {
     "s": "C2",
@@ -272,7 +272,7 @@ const PRETEST = [
       "Structured submersion, which places ELLs in general education classrooms with no additional language services."
     ],
     "c": 2,
-    "r": "Dual Language is the only listed model designed to develop and sustain proficiency in two languages (an additive model) and to enroll both ELLs and English-proficient students together, matching the district's biliteracy and home-language-maintenance goal. Transitional Bilingual Education is the strongest distractor, but it is a subtractive model: the home language is used instrumentally and phased out rather than maintained. Stand-Alone ENL develops English without sustaining the home language. Structured submersion provides no services and is not a legally permissible stand-alone approach, because Commissioner's Regulations Part 154 require documented ENL or bilingual services for every identified ELL."
+    "r": "Dual Language is the only listed model designed to develop and sustain proficiency in two languages (an additive model) and to enroll both ELLs and English-proficient students together, matching the district's biliteracy and home-language-maintenance goal. Transitional Bilingual Education is the strongest distractor, but it uses the home language mainly as a bridge and phases it out (a weaker, potentially subtractive model) rather than maintaining it. Stand-Alone ENL develops English without sustaining the home language. Structured submersion provides no services and is not a legally permissible stand-alone approach, because Commissioner's Regulations Part 154 require documented ENL or bilingual services for every identified ELL."
   },
   {
     "s": "C2",
@@ -433,15 +433,15 @@ const PRETEST = [
   {
     "s": "C4",
     "d": "Teacher Responsibilities: Legal & Ethical Judgment",
-    "q": "A first-year teacher notices that her third-grade students consistently struggle with multi-step word problems. She reviews her lesson plans and realizes she has primarily used direct instruction with limited opportunities for student practice. What is the MOST appropriate next step to improve her instructional effectiveness?",
+    "q": "A 4th grader tells her teacher that her stepfather hit her with a belt last night, and the teacher sees welts on the backs of her legs. The teacher tells the principal, who says, 'Let me look into it first. Don't call anyone until I talk to the family this afternoon.' What should the teacher do?",
     "a": [
-      "Move on to the next unit, since spending more time on word problems will delay coverage of required content.",
-      "Send home additional practice worksheets and ask parents to work through multi-step word problems with their children each night until classroom performance begins to improve.",
-      "Request a meeting with the principal to explain why the math curriculum is inadequate for this grade level.",
-      "Analyze student assessment data and consult with her grade-level team to identify research-based instructional strategies that increase student engagement and practice."
+      "Wait for the principal's follow-up, since notifying the building administrator satisfies a teacher's reporting duty under New York law.",
+      "Call the Statewide Central Register herself right away, because the reporting duty is personal and no one's permission is required.",
+      "Ask the student to write down exactly what happened so her account is preserved before anyone contacts the family or an outside agency.",
+      "Contact the stepfather that afternoon to hear his explanation, so that any report the school files later is accurate and fair to the family."
     ],
-    "c": 3,
-    "r": "Effective professional practice requires teachers to use data to reflect on their own instruction and to collaborate with colleagues to identify evidence-based improvements, a core teacher responsibility under the EAS framework (Competency IV). Attributing the problem solely to the curriculum and escalating to the principal avoids professional self-reflection and shifts responsibility away from the teacher's own instructional decision-making, which is why the request-a-meeting option is the strongest distractor. Sending home more worksheets outsources instruction to parents without changing classroom practice."
+    "c": 1,
+    "r": "Under Social Services Law 413, a teacher with reasonable cause to suspect abuse by a parent or other person legally responsible for the child must report immediately by phone to the Statewide Central Register. The duty is personal: telling the principal does not satisfy it, and a school may not require staff to get permission before reporting. The strongest distractor, deferring to the principal, fails for exactly that reason. Having the child write a statement turns the teacher into an investigator, and contacting the stepfather could put the child at further risk."
   },
   {
     "s": "C4",
@@ -485,15 +485,15 @@ const PRETEST = [
   {
     "s": "C4",
     "d": "Teacher Responsibilities: Legal & Ethical Judgment",
-    "q": "A fourth-grade teacher is designing a unit on ecosystems and wants to ensure her assessments measure student understanding of the learning objectives, not just recall. Which approach BEST reflects sound principles of aligned assessment design?",
+    "q": "A 2nd grader has received Tier 2 reading intervention for six weeks. Her mother hands the teacher a signed letter asking that her daughter be evaluated for special education. The teacher believes the intervention is starting to work. What is the teacher's MOST appropriate response?",
     "a": [
-      "Grade students on effort and participation throughout the unit, since effort is the best predictor of long-term learning.",
-      "Assign a single culminating project at the end of the unit and allow students to choose any topic within the ecosystem theme, so the assessment captures authentic student interest.",
-      "Use varied formative checkpoints — exit tickets, small-group discussions, science journal entries — aligned to specific objectives, and adjust instruction based on the results.",
-      "Administer the same multiple-choice test at the beginning and end of the unit to measure how much content students retained."
+      "Explain that the school cannot consider an evaluation until the student has completed every tier of the RtI process and the progress-monitoring data show she has not responded.",
+      "Hold the letter until the next progress-monitoring review so the intervention team can decide whether the request is warranted before passing it along.",
+      "Forward the letter promptly to the CSE chairperson or building administrator, because a parent's written request is a referral that RtI cannot delay or deny.",
+      "Suggest that the mother withdraw the letter for now and resubmit it at the spring conference if her daughter is still struggling by then."
     ],
     "c": 2,
-    "r": "Sound assessment design uses multiple formative measures aligned to specific learning objectives so the teacher can monitor progress and adjust instruction during the unit, a core teacher responsibility. Relying solely on an identical pre/post multiple-choice test is the strongest distractor because it appears to measure growth, but it captures only recall at two points and provides none of the ongoing data needed to adjust instruction. Grading on effort alone does not measure understanding of the objectives, and an end-of-unit project with unconstrained topic choice can drift away from the targeted objectives."
+    "r": "In New York a parent may refer a child directly, and a parent's written request for an evaluation is a referral that goes promptly to the CSE chairperson (a building administrator who receives one forwards it immediately). Under 8 NYCRR 100.2(ii), a district's RtI notice to parents must tell them of their right to request an evaluation, and both federal guidance (OSEP Memo 11-07) and NYSED guidance state that RtI cannot be used to delay or deny an evaluation. The strongest distractor, telling the mother she must wait until RtI is complete, sounds like sound practice but misstates the law: RtI data inform the evaluation, they do not gate it. Holding the letter for a team review and urging the mother to withdraw it both obstruct a right the parent holds. The teacher can still share that the intervention appears to be helping."
   },
   {
     "s": "C4",
@@ -579,12 +579,12 @@ const POSTTEST = [
   {
     "s": "C1",
     "d": "Diversity as an Asset & School-Community Collaboration",
-    "q": "An ELL who has attended U.S. schools for three years scored at the Transitioning level on last spring's NYSESLAT and receives integrated ENL services in ELA. She converses easily in English, but her written arguments in ELA remain underdeveloped. The teacher should:",
+    "q": "An ELL who has attended U.S. schools for three years scored at the Transitioning level on last spring's state English language proficiency test and receives integrated ENL services in ELA. She converses easily in English, but her written arguments in ELA remain underdeveloped. The teacher should:",
     "a": [
       "Ask the ENL teacher to discontinue her integrated ENL support, since her easy conversational English shows that she no longer needs formal language services in ELA.",
       "Lower her writing expectations to match her current output, so that her ELA grades reflect effort and growth rather than her English proficiency.",
       "Continue scaffolded writing instruction (sentence frames, graphic organizers, modeled academic discourse) with the ENL teacher, as CALP takes five to seven years.",
-      "Refer her to the CSE for a written-expression disability evaluation, since three years of English instruction should be enough for grade-level argumentative writing."
+      "Submit a written request for referral to the CSE to evaluate a possible written-expression disability, since three years of English instruction should be enough for grade-level argumentative writing."
     ],
     "c": 2,
     "r": "The correct answer is right because Transitioning (Intermediate) is a Part 154 ELL level, not an exit: the student remains an ELL entitled to ENL services, and the academic language (CALP) needed for written argument typically takes five to seven years even after conversational fluency (BICS) develops. The strongest distractor, a CSE referral, is premature: IDEA bars a disability finding when limited English proficiency is the determinant factor (34 CFR 300.306(b)), and her profile matches normal second-language development. Ending ENL support is not a teacher's decision; Part 154 ends ELL status only through a Commanding score or Expanding plus a proficient ELA result. Lowering expectations withholds the rigor she needs."
@@ -596,11 +596,11 @@ const POSTTEST = [
     "a": [
       "Schedule a well-publicized community night with a professional interpreter early in the year, so that every family has at least one fully accessible opportunity to connect with the school.",
       "Send all communications home in English only, since families should practice English.",
-      "Establish ongoing multilingual communication — translated newsletters, interpreter phone calls, and a bilingual family liaison — while learning key phrases in families' home languages.",
+      "Establish ongoing multilingual communication (translated newsletters, interpreter phone calls, and a bilingual family liaison) while learning key phrases in families' home languages.",
       "Ask students to serve as interpreters for routine parent communications, reserving professional interpreters for formal meetings, to make the best use of limited district resources."
     ],
     "c": 2,
-    "r": "The correct answer is right because sustained, multilingual outreach with a designated liaison signals genuine partnership and removes language barriers to engagement; under Title VI and the EEOA, schools must communicate essential information with limited-English-proficient parents in a language they can understand. The strongest distractor is wrong: it places an inappropriate and ethically problematic translation burden on children, who may filter or alter communications and should not be placed in an adult intermediary role."
+    "r": "The correct answer is right because sustained, multilingual outreach with a designated liaison signals genuine partnership and removes language barriers to engagement; under Title VI (and, in New York, Part 154 notice rules), schools must communicate essential information to limited-English-proficient parents in a language they understand. The strongest distractor is wrong: it places an inappropriate and ethically problematic translation burden on children, who may filter or alter communications and should not be placed in an adult intermediary role."
   },
   {
     "s": "C1",
@@ -608,7 +608,7 @@ const POSTTEST = [
     "q": "A fifth-grade student has a documented learning disability in written expression (IEP) but demonstrates exceptional verbal reasoning and creative problem-solving. The general education teacher should:",
     "a": [
       "Focus instructional time on remediating the writing disability first, since fluent grade-level written expression is the gateway skill the student needs before enrichment becomes appropriate.",
-      "Recognize the student as twice-exceptional and use UDL options — oral responses, dictation tools, visual formats — so strengths shine while writing develops.",
+      "Recognize the student as twice-exceptional and use UDL options (oral responses, dictation tools, visual formats) so strengths shine while writing develops.",
       "Notify the gifted coordinator that the student's IEP disqualifies them from gifted services.",
       "Place the student in the special education resource room for all core subjects to address the disability."
     ],
@@ -712,12 +712,12 @@ const POSTTEST = [
     "q": "A recently arrived 10th-grade newcomer from a conflict zone is placed in an ENL newcomer program. The student is withdrawn, startles easily, and has difficulty concentrating. The ENL teacher suspects the student may have experienced significant trauma. Which is the MOST appropriate immediate step?",
     "a": [
       "Alert the school counselor and building mental health supports, document observations, and adjust classroom routines to provide predictability and psychological safety.",
-      "Administer the NYSESLAT immediately to establish a language baseline before providing any other support.",
+      "Administer the annual English language proficiency test immediately to establish a language baseline before providing any other support.",
       "Contact the family right away to learn exactly what traumatic events occurred, so the teacher can avoid triggering topics and address the trauma directly and sensitively during instruction.",
-      "Refer the student directly to the CSE for a special education evaluation because of the concentration difficulties."
+      "Submit a written request for referral to the CSE right away for a special education evaluation because of the concentration difficulties."
     ],
     "c": 0,
-    "r": "Trauma-informed practice calls for immediate collaboration with mental health professionals rather than independent teacher diagnosis, and for building a predictable, low-stress environment that supports the preconditions for learning while specialists assess needs. The immediate CSE-referral option is the strongest distractor: concentration difficulties that may be trauma responses or part of a newcomer adjustment cannot be the basis for a disability referral without first considering situational and language factors, consistent with IDEA's rule that limited English proficiency may not be the determinant factor in an eligibility decision (34 CFR 300.306(b)). Probing the family for traumatic details could re-traumatize the student and is outside the teacher's role, and the NYSESLAT is given on its annual schedule, not as an emergency response to a mental-health concern."
+    "r": "Trauma-informed practice calls for immediate collaboration with mental health professionals rather than independent teacher diagnosis, and for building a predictable, low-stress environment that supports the preconditions for learning while specialists assess needs. The immediate request for a CSE referral is the strongest distractor: concentration difficulties that may be trauma responses or part of a newcomer adjustment cannot be the basis for a disability referral without first considering situational and language factors, consistent with IDEA's rule that limited English proficiency may not be the determinant factor in an eligibility decision (34 CFR 300.306(b)). Probing the family for traumatic details could re-traumatize the student and is outside the teacher's role, and the annual English language proficiency test is given only in its spring testing window, not as an emergency response to a mental-health concern."
   },
   {
     "s": "C2",
@@ -826,15 +826,15 @@ const POSTTEST = [
   {
     "s": "C4",
     "d": "Teacher Responsibilities: Legal & Ethical Judgment",
-    "q": "A seventh-grade science teacher reviews standardized test data and finds that her students performed significantly below the district average on inquiry-based lab questions, though their scores on content-recall items were near average. What is the MOST professionally responsive course of action?",
+    "q": "An 8th grader with an IEP gets into a fistfight with a classmate. No weapon, drugs, or serious bodily injury is involved, and he has no other removals this year. After a superintendent's hearing, the district decides to suspend him for 20 school days. Which step does IDEA REQUIRE in connection with this decision?",
     "a": [
-      "Assume the standardized test is a poor measure of her students' abilities and disregard the data when planning future units.",
-      "Examine whether her lab activities provide sufficient scaffolding for scientific reasoning, then consult research and colleagues to identify targeted instructional adjustments.",
-      "Notify parents that their children need additional tutoring support in lab skills before the next assessment cycle.",
-      "Increase the number of textbook readings assigned as homework to strengthen students' foundational content knowledge, since inquiry performance depends on a firm base of factual understanding."
+      "None beyond the superintendent's hearing, because a student with an IEP is subject to the same code of conduct and suspension lengths as any other student.",
+      "Written parental consent before the suspension takes effect, because any disciplinary removal of a student with an IEP is a change in placement that requires consent.",
+      "Within 10 school days of the decision, the district, the parent, and relevant CSE members must review whether the conduct was a manifestation of his disability.",
+      "A written judgment from his special education teacher, sent to the principal before the 10th day of the suspension, on whether the behavior relates to his disability."
     ],
-    "c": 1,
-    "r": "Professional reflection requires teachers to interrogate their own instructional decisions when data reveals a performance gap and to use evidence-based strategies to address it. Dismissing valid assessment data is the strongest distractor because the test results were imperfect like all measures, but discarding a clear, content-specific signal impedes professional growth and prevents the teacher from meeting an identified learning need. Adding readings targets recall (already adequate) rather than the reasoning gap, and shifting the work to outside tutoring sidesteps the teacher's own instructional responsibility."
+    "c": 2,
+    "r": "A removal of more than 10 consecutive school days is a change in placement for a student with a disability, so IDEA requires a manifestation determination within 10 school days of the decision, made by the district, the parent, and relevant CSE members, who decide whether the conduct was caused by, or had a direct and substantial relationship to, the disability, or resulted from a failure to implement the IEP. If the conduct is a manifestation, the student generally returns to his placement and the team conducts an FBA and develops or reviews a BIP. The strongest distractor, treating him exactly like a general education student, ignores these protections. Parental consent is not the safeguard for disciplinary removals (notice and the manifestation review are), and no single teacher makes the manifestation decision."
   },
   {
     "s": "C4",
@@ -852,15 +852,15 @@ const POSTTEST = [
   {
     "s": "C4",
     "d": "Teacher Responsibilities: Legal & Ethical Judgment",
-    "q": "A tenth-grade English teacher is asked to participate in a school-based professional learning community (PLC) focused on improving writing across content areas. She teaches only English and feels the PLC is primarily relevant to her content-area colleagues. What BEST reflects the professional responsibility of all teachers in this context?",
+    "q": "In the faculty lounge, with a parent volunteer and a student teacher at the next table, a colleague begins describing a student's IEP classification and the details of the family's custody dispute. Which response by the teacher is MOST appropriate?",
     "a": [
-      "Attend PLC meetings when her schedule allows but prioritize her own department planning time, since writing instruction is already central to English class and her expertise is best used there.",
-      "Participate actively, share her content expertise in writing instruction, and contribute to developing cross-curricular strategies that benefit students school-wide.",
-      "Defer to the literacy coach to lead all PLC discussions, since that is the coach's primary job responsibility.",
-      "Propose that the PLC form a separate sub-group for English teachers so they can focus on more advanced writing goals."
+      "Join the conversation briefly to add context from her own classroom, since everyone present works with students in the school community.",
+      "Redirect the conversation in the moment, then privately remind the colleague that student information is shared only with staff who need it.",
+      "Ask the parent volunteer and the student teacher to move to another table so the colleague can finish the discussion with fewer people listening.",
+      "Say nothing in the moment, then file a formal written complaint about the colleague with the State Education Department without first speaking to her."
     ],
     "c": 1,
-    "r": "Teacher professional responsibility includes contributing to a collaborative school community and using one's expertise to improve student outcomes school-wide, not only within one's own classroom. Attending only when convenient is the strongest distractor because it sounds cooperative, but it treats professional collaboration as optional rather than as an integral part of teacher responsibility. Splintering off a separate English sub-group undercuts the cross-curricular purpose, and deferring entirely to the literacy coach withholds the content expertise the PLC needs."
+    "r": "FERPA limits disclosure of personally identifiable information from education records, such as an IEP classification, to school officials with a legitimate educational interest, and the NYS Code of Ethics calls on educators to respect confidentiality. A parent volunteer has no legitimate interest in this student's records, and family custody details do not belong in a common room. Redirecting stops the disclosure, and a private, collegial reminder addresses the conduct in proportion. The strongest distractor, clearing nearby listeners, still treats an open lounge as an acceptable place for the discussion. Joining in compounds the breach, and going straight to a state complaint without addressing it locally is disproportionate."
   },
   {
     "s": "C4",
@@ -891,7 +891,7 @@ const POSTTEST = [
   {
     "s": "C4",
     "d": "School-Home Relationships & Family Engagement",
-    "q": "At an annual review, a parent asks the CSE to add 1:1 aide support to her daughter's IEP. After discussion, the district members decline the request. The parent asks, \"So what happens now — do I just get told no?\" What is the district required to provide?",
+    "q": "At an annual review, a parent asks the CSE to add 1:1 aide support to her daughter's IEP. After discussion, the district members decline the request. The parent asks, \"So what happens now? Do I just get told no?\" What is the district required to provide?",
     "a": [
       "Nothing further is required of the district, because a parent request that has been discussed in good faith and then declined at a duly convened annual review meeting needs no additional written documentation.",
       "A revised IEP that includes the aide on a 30-day trial basis while the disagreement is documented.",
@@ -908,11 +908,11 @@ const POSTTEST = [
     "a": [
       "Document the attempted contacts, try direct phone calls at different times of day, and enlist the family outreach coordinator or social worker if there is still no response.",
       "Wait until the next scheduled report card conference to raise the concern in person.",
-      "Refer the student immediately to special education evaluation since lack of family response may signal a disability.",
+      "Submit a written request for referral to the CSE right away, since the family's lack of response may signal that the student has a disability.",
       "Send a third written notice by certified mail indicating that continued non-response may result in a mandatory parent conference or a truancy referral to the district office."
     ],
     "c": 0,
-    "r": "Escalating outreach through varied modalities (phone, varied times) and involving school family-engagement staff is the evidence-based, equitable response to non-response; it recognizes that families may face access barriers such as work schedules, literacy, or language rather than indifference. Referring immediately to special education is inappropriate and legally unsound: academic decline plus an unreached family does not by itself trigger IDEA evaluation; a proper referral requires documented evidence of a suspected disability and consideration of general education interventions."
+    "r": "Escalating outreach through varied modalities (phone, varied times) and involving school family-engagement staff is the evidence-based, equitable response to non-response; it recognizes that families may face access barriers such as work schedules, literacy, or language rather than indifference. The strongest distractor, rushing a written request for referral to the CSE, is inappropriate: academic decline plus an unreached family does not by itself suggest a disability, and in New York a teacher's request for referral must state the reasons, describe the interventions already tried (or why none were), and describe the extent of parent contact. Here no interventions have been tried and the family has not yet been reached, so a request would be premature."
   },
   {
     "s": "C4",
@@ -1018,10 +1018,10 @@ const MODULES = {
       {
         "s": "C1",
         "d": "Knowing Learners & Building Classroom Community",
-        "q": "A 2nd-grade teacher notices that a Latina student who scored Commanding on last spring's NYSESLAT, exited ELL status, and now receives Former ELL services rarely participates in group work, and her academic performance has declined. When the teacher contacts the family, the grandmother explains that the family recently received threatening correspondence related to their immigration status and is very anxious. What is the MOST appropriate next step for the teacher?",
+        "q": "A 2nd-grade teacher notices that a Latina student who scored Commanding on the state's annual English language proficiency test, exited ELL status, and now receives Former ELL services rarely participates in group work, and her academic performance has declined. When the teacher contacts the family, the grandmother explains that the family recently received threatening correspondence related to their immigration status and is very anxious. What is the MOST appropriate next step for the teacher?",
         "a": [
           "Ask that the student be returned to ELL status and full ENL services, because her recent performance resembles that of an English learner.",
-          "Refer the student to the CSE for an evaluation, since an academic decline after exiting ELL status may indicate a learning disability previously masked by her English-learner status, and early identification protects her rights.",
+          "Submit a written request for a CSE referral, since an academic decline after exiting ELL status may indicate a learning disability previously masked by her English-learner status, and early identification protects her rights.",
           "Tell the family that immigration matters are outside the school's scope and keep the conversation focused entirely on academic skill remediation.",
           "Acknowledge the family's stress, connect them with the school social worker and community resources, and use low-stakes structures such as cooperative learning and restorative circles to re-engage the student."
         ],
@@ -1201,7 +1201,7 @@ const MODULES = {
           "Recognize that her profile is consistent with SIFE, ensure she receives ENL or bilingual services plus foundational literacy support, and avoid conflating interrupted schooling with a disability.",
           "Place her in a bilingual class and wait six months before making any instructional adjustments, since CALP takes years to develop.",
           "Provide only oral instruction and eliminate writing tasks, since written language appears to be her primary deficit.",
-          "Refer her to the CSE for a learning-disability evaluation, since performance several years below grade level in her home language is a classic marker of a specific learning disability rather than a language issue."
+          "Submit a written request for referral to the CSE for a learning-disability evaluation, since performance several years below grade level in her home language is a classic marker of a learning disability rather than a language issue."
         ],
         "c": 0,
         "r": "The correct answer is right because IDEA's exclusionary-factor rule (34 CFR 300.306(b)) prohibits identifying a disability when the determinant factor is limited English proficiency or lack of appropriate instruction. Her strong conversational fluency (BICS) alongside weak academic literacy, after years of sporadic schooling, is the hallmark SIFE profile and calls for ENL or bilingual services plus foundational literacy support. The strongest distractor, an immediate CSE referral, looks like decisive action, but referring her before she has received appropriate SIFE instruction ignores that rule, because interrupted schooling is the likely cause of the gap."
@@ -1235,15 +1235,15 @@ const MODULES = {
       {
         "s": "C1",
         "d": "Inclusive, Evidence-Based Instruction & UDL",
-        "q": "A school improvement team is selecting a supplemental reading intervention with federal funds. One vendor's program is supported by two large randomized controlled trials showing positive effects; another is supported by a correlational study; a third offers only a logic model. Under ESSA's evidence framework, how should the team rank the options?",
+        "q": "A school improvement team is selecting a supplemental reading intervention with federal funds. One vendor's program is supported by two large randomized controlled trials showing positive effects; another is supported by a well-designed correlational study with statistical controls for selection bias; a third offers only a logic model. Under ESSA's evidence framework, how should the team rank the options?",
         "a": [
-          "The RCT-supported program meets ESSA's 'strong evidence' tier, the correlational study meets 'promising,' and the logic model alone meets only 'demonstrates a rationale' — the lowest tier.",
+          "The RCT-supported program meets ESSA's 'strong evidence' tier, the controlled correlational study meets 'promising,' and the logic model alone meets only 'demonstrates a rationale,' the lowest tier.",
           "None can be purchased until the district runs its own local pilot study, which ESSA requires before adoption.",
           "All three qualify equally, since ESSA requires only that a program be 'research-based' in the general sense.",
           "The logic-model program should rank highest of the three, because a clearly articulated theory of change for local students matters more than experimental studies that were conducted with different populations in other districts."
         ],
         "c": 0,
-        "r": "ESSA defines four evidence tiers: strong (well-designed experimental studies), moderate (quasi-experimental), promising (correlational with controls), and 'demonstrates a rationale.' Randomized controlled trials anchor the top tier, correlational evidence sits at promising, and a logic model alone occupies the bottom. The tiers are explicitly not equal, theory does not outrank causal evidence, and ESSA requires no local pilot before adoption."
+        "r": "ESSA defines four evidence tiers: strong (well-designed experimental studies), moderate (quasi-experimental), promising (correlational with controls), and 'demonstrates a rationale.' Randomized controlled trials anchor the top tier, the controlled correlational study sits at promising, and a logic model alone occupies the bottom. The tiers are explicitly not equal, theory does not outrank causal evidence, and ESSA requires no local pilot before adoption."
       },
       {
         "s": "C1",
@@ -1256,7 +1256,7 @@ const MODULES = {
           "The family must first enroll through the district's central office, which verifies shelter residency before assigning a school."
         ],
         "c": 0,
-        "r": "McKinney-Vento requires immediate enrollment of students experiencing homelessness even when records normally required — proof of residency, immunization records, prior transcripts — are missing, and every district must designate a liaison to obtain documents and coordinate services. Provisional windows, central-office preconditions, and tutoring in lieu of enrollment all delay the access the statute forbids delaying."
+        "r": "McKinney-Vento requires immediate enrollment of students experiencing homelessness even when normally required records (proof of residency, immunization records, prior transcripts) are missing, and every district must designate a liaison to obtain documents and coordinate services. Provisional windows, central-office preconditions, and tutoring in lieu of enrollment all delay the access the statute forbids delaying."
       },
       {
         "s": "C1",
@@ -1291,11 +1291,11 @@ const MODULES = {
         "a": [
           "Daily exit tickets are excessive and should be scaled back; brief formative checks are best given no more than once per week, so that students do not become fatigued by constant low-stakes assessment of their learning.",
           "The teacher should grade only a random sample of tickets to keep the workload manageable.",
-          "The tickets are being treated as summative scores while their formative purpose — adjusting instruction based on evidence of learning — is being ignored.",
+          "The tickets are being treated as summative scores while their formative purpose (adjusting instruction based on evidence of learning) is being ignored.",
           "Exit tickets are unreliable measures and should not be used in classrooms that serve diverse learners."
         ],
         "c": 2,
-        "r": "The defining feature of formative assessment is that evidence feeds back into instructional decisions; collecting scores without adjusting teaching converts a formative tool into low-stakes summative grading and forfeits its benefit. The problem is use, not the instrument's reliability, sampling strategy, or frequency — brief daily checks are appropriate when they actually inform next-day instruction."
+        "r": "The defining feature of formative assessment is that evidence feeds back into instructional decisions; collecting scores without adjusting teaching converts a formative tool into low-stakes summative grading and forfeits its benefit. The problem is use, not the instrument's reliability, sampling strategy, or frequency; brief daily checks are appropriate when they actually inform next-day instruction."
       },
       {
         "s": "C1",
@@ -1377,7 +1377,7 @@ const MODULES = {
       },
       {
         "title": "Identifying and Incorporating School- and Community-Based Resources",
-        "body": "Effective teachers recognize that learning extends beyond classroom walls and tap into a network of school-based and community-based resources. School-based resources include intervention specialists, ENL (English as a New Language) teachers, bilingual educators, school counselors, psychologists, and the Committee on Special Education (CSE) referral process for students who may need IDEA-protected supports. Under Section 504 of the Rehabilitation Act, students with a disability who do not qualify for special education may still receive accommodations coordinated through a building-level 504 team. Community-based resources include cultural organizations, faith communities, public libraries, community health centers, and local businesses that can provide mentors, guest speakers, and real-world project contexts. Parent coordinators and community liaisons bridge school and home, particularly for families whose primary language is not English or who have limited prior experience with U.S. school systems. Multi-Tiered Systems of Support (MTSS), including Response to Intervention (RtI), connect classroom teachers to tiered school-based supports; in New York, RtI is required for identifying a specific learning disability in reading in grades K-4. Mapping these resources and knowing referral pathways is a core teacher competency the EAS assesses directly."
+        "body": "Effective teachers recognize that learning extends beyond classroom walls and tap into a network of school-based and community-based resources. School-based resources include intervention specialists, ENL (English as a New Language) teachers, bilingual educators, school counselors, psychologists, and the Committee on Special Education (CSE) referral process for students who may need IDEA-protected supports. Under Section 504 of the Rehabilitation Act, students with a disability who do not qualify for special education may still receive accommodations coordinated through a building-level 504 team. Community-based resources include cultural organizations, faith communities, public libraries, community health centers, and local businesses that can provide mentors, guest speakers, and real-world project contexts. Parent coordinators and community liaisons bridge school and home, particularly for families whose primary language is not English or who have limited prior experience with U.S. school systems. Multi-Tiered Systems of Support (MTSS), including Response to Intervention (RtI), connect classroom teachers to tiered school-based supports; in New York, every district must have an RtI process for K-4 reading, and a CSE may not use severe discrepancy to find a learning disability in reading in grades K-4. Mapping these resources and knowing referral pathways is a core teacher competency the EAS assesses directly."
       },
       {
         "title": "Creating a Safe, Supportive Classroom That Fully Integrates Students with Disabilities",
@@ -1446,7 +1446,7 @@ const MODULES = {
         "q": "Ms. Torres teaches 2nd grade and has a newly arrived student, Amara, whose home language is Wolof. Amara communicates easily on the playground but struggles significantly with written reading comprehension tasks. Ms. Torres concludes that Amara has no language barrier because \"she talks fine at recess.\" Which response best explains the flaw in Ms. Torres's reasoning and what she should do?",
         "a": [
           "Ms. Torres should ask Amara's family to speak only English at home so Amara builds proficiency more quickly.",
-          "Ms. Torres should refer Amara to the CSE promptly, since a persistent gap between oral fluency and reading comprehension is the pattern most commonly associated with a learning disability.",
+          "Ms. Torres should promptly submit a written request for a CSE referral, since a persistent gap between oral fluency and reading comprehension is the pattern most commonly associated with a learning disability.",
           "Ms. Torres is correct; playground fluency indicates Amara is ready for grade-level literacy instruction without additional language scaffolds.",
           "Ms. Torres is confusing BICS with CALP; she should provide academic-language scaffolds with the ENL teacher and review proficiency data before considering any disability referral."
         ],
@@ -1458,13 +1458,13 @@ const MODULES = {
         "d": "Diversity as an Asset & School-Community Collaboration",
         "q": "A high school counselor tells a teacher that a first-generation student 'has no college knowledge at home.' The teacher, drawing on Yosso's community cultural wealth framework, would most accurately respond that the family likely possesses:",
         "a": [
-          "Aspirational and navigational capital — sustained hopes for their child's future and hard-won strategies for maneuvering institutions — that the school can build on in college planning.",
-          "The family likely holds cultural capital only in nondominant forms that, while genuinely meaningful within the home and community, offer little practical leverage in the formal college admissions and financial-aid process.",
+          "Aspirational and navigational capital (sustained hopes for their child's future and hard-won strategies for maneuvering institutions) that the school can build on in college planning.",
+          "Cultural capital only in nondominant forms that, while genuinely meaningful within the home and community, offer little practical leverage in the formal college admissions and financial-aid process.",
           "Social capital that will become useful only after the student enrolls and joins campus networks.",
           "A knowledge deficit that the school must remediate through a mandatory parent information course before the student applies."
         ],
         "c": 0,
-        "r": "Yosso's framework names six forms of capital — aspirational, linguistic, familial, social, navigational, and resistant — that communities of color possess and schools routinely overlook. Framing the family through what it lacks is precisely the deficit thinking the framework challenges; the asset response identifies existing strengths (aspirations, institutional navigation skills) and connects them to the college process now, not after enrollment."
+        "r": "Yosso's framework names six forms of capital (aspirational, linguistic, familial, social, navigational, and resistant) that communities of color possess and schools routinely overlook. Framing the family through what it lacks is precisely the deficit thinking the framework challenges; the asset response identifies existing strengths (aspirations, institutional navigation skills) and connects them to the college process now, not after enrollment."
       },
       {
         "s": "C1",
@@ -1484,7 +1484,7 @@ const MODULES = {
         "d": "Diversity as an Asset & School-Community Collaboration",
         "q": "A middle school teacher assigns nightly homework requiring internet research. She learns that roughly a quarter of her students have no reliable home internet and several share one phone among siblings. Which revision best addresses the equity issue?",
         "a": [
-          "Redesign homework so it can be completed without connectivity — packets, downloaded resources, school-time access — while connecting families with district and community low-cost internet programs.",
+          "Redesign homework so it can be completed without connectivity (packets, downloaded resources, school-time access) while connecting families with district and community low-cost internet programs.",
           "Grade homework on completion rather than accuracy so that access differences do not affect marks.",
           "Keep the connectivity-dependent assignments as designed but extend all of the deadlines by forty-eight hours, so that students without home internet have additional time to complete the research at a public library branch.",
           "Make homework optional for students who report lacking internet access at home."
@@ -1510,7 +1510,7 @@ const MODULES = {
         "d": "Diversity as an Asset & School-Community Collaboration",
         "q": "A 6th-grade science teacher is beginning a unit on weather and climate. Her students' families include a fisherman, a building superintendent, and a community gardener. Which use of these community resources best enhances the unit?",
         "a": [
-          "Invite the three community members as expert informants — on reading weather at sea, managing building heat, and planting by season — and have students design investigation questions connecting their knowledge to the unit's concepts.",
+          "Invite the three community members as expert informants (reading weather at sea, managing building heat, planting by season) and have students design investigation questions connecting their knowledge to the unit's concepts.",
           "Interview the three adults herself and summarize their insights for students during the unit introduction.",
           "Feature the three occupations on a careers bulletin board so students see science jobs in their neighborhood.",
           "Invite a university-affiliated meteorologist to present to the class instead of local residents, on the principle that classroom guest speakers should model the highest available level of formal scientific expertise for students."
@@ -1526,7 +1526,7 @@ const MODULES = {
           "Initiate the school's progressive discipline sequence so behavioral expectations are established early.",
           "Consider acculturative stress, disrupted schooling, and possible trauma as explanations, gather information from the family and ENL staff, and involve counseling supports before treating the behavior as willful defiance.",
           "Reduce his workload substantially until the behaviors stop, then reintroduce demands gradually.",
-          "Initiate a CSE referral for the newcomer without delay, since an abrupt behavior change of this kind — withdrawal, irritability, and refusal of previously attempted work — is generally a reliable early indicator of an emotional disability."
+          "Submit a written request for a CSE referral without delay, since an abrupt behavior change of this kind (withdrawal, irritability, and refusal of previously attempted work) is generally a reliable early indicator of an emotional disability."
         ],
         "c": 1,
         "r": "Newcomers frequently show behavior changes that reflect acculturative stress, grief, or trauma rather than defiance or disability; sound practice is to rule in contextual explanations with family and ENL input and to mobilize supports first. Jumping to discipline punishes distress, a disability referral two months after resettlement confuses situational factors with an internal condition, and simply removing demands neither identifies nor addresses the cause."
@@ -1590,7 +1590,7 @@ const MODULES = {
     "concepts": [
       {
         "title": "Stages of Second-Language Acquisition",
-        "body": "Krashen and Terrell's Natural Approach identifies five sequential stages ELLs move through: (1) Pre-production (Silent Period) the learner builds receptive vocabulary, responds nonverbally, and may say little for weeks to months; (2) Early Production one- to two-word responses, high-frequency phrases, approximately 1,000 receptive words; (3) Speech Emergence simple sentences, formulaic language, grammatical errors still prominent; (4) Intermediate Fluency complex sentences, ability to express opinion, content gaps remain; (5) Advanced Fluency near-native command of social and academic language, though academic vocabulary gaps may persist years longer. EAS items frequently test whether teachers calibrate task demands and linguistic scaffolds to stage. A student in pre-production should not be penalized for silence; a student in intermediate fluency still needs explicit academic vocabulary instruction. Stage is not fixed: anxiety, topic familiarity, and L1 proximity to English speed or slow movement. Recognizing stage informs ENL service-delivery decisions and helps teachers distinguish a normal stage of language development from a disability rather than misidentifying difference as disability."
+        "body": "Krashen and Terrell's Natural Approach identifies five sequential stages ELLs move through: (1) Pre-production (Silent Period): the learner builds receptive vocabulary, responds nonverbally, and may say little for weeks to months; (2) Early Production: one- to two-word responses, high-frequency phrases, approximately 1,000 receptive words; (3) Speech Emergence: simple sentences, formulaic language, grammatical errors still prominent; (4) Intermediate Fluency: complex sentences, ability to express opinion, content gaps remain; (5) Advanced Fluency: near-native command of social and academic language, though academic vocabulary gaps may persist years longer. EAS items frequently test whether teachers calibrate task demands and linguistic scaffolds to stage. A student in pre-production should not be penalized for silence; a student in intermediate fluency still needs explicit academic vocabulary instruction. Stage is not fixed: anxiety, topic familiarity, and L1 proximity to English speed or slow movement. Recognizing stage informs ENL service-delivery decisions and helps teachers distinguish a normal stage of language development from a disability rather than misidentifying difference as disability."
       },
       {
         "title": "BICS vs. CALP",
@@ -1651,7 +1651,7 @@ const MODULES = {
         "a": [
           "Group the ELLs together for the unit with simplified texts written at a lower readability level, ensuring full comprehension before they rejoin the whole-class constitutional discussions.",
           "Allow ELLs to preview key constitutional concepts in their home language and construct a bilingual concept map before English discussion.",
-          "Postpone abstract content for ELLs until they achieve Advanced Fluency on the NYSESLAT.",
+          "Postpone abstract content for ELLs until they reach the Commanding level of English proficiency.",
           "Provide all instruction in English only to maximize ELLs' immersion time and accelerate reclassification."
         ],
         "c": 1,
@@ -1688,9 +1688,9 @@ const MODULES = {
         "d": "Language Acquisition Foundations",
         "q": "A 4th-grade teacher chooses a read-aloud for a class that includes Emerging-level ELLs. Guided by Krashen's comprehensible input hypothesis, she should select:",
         "a": [
-          "Select text pitched well above the students' current grade level, on the reasoning that continuous immersion in rich and complex language forms is what will eventually allow those forms to be acquired most efficiently.",
+          "Text pitched well above the students' current grade level, on the reasoning that continuous immersion in rich and complex language forms is what will eventually allow those forms to be acquired most efficiently.",
           "Alternating passages of English and the students' home languages so every sentence is understood twice.",
-          "Text slightly beyond students' current proficiency, made comprehensible through visuals, gestures, context, and paraphrase — input at 'i+1.'",
+          "Text slightly beyond students' current proficiency ('i+1'), made comprehensible through visuals, gestures, context, and paraphrase.",
           "Text fully within students' current independent level so that no unfamiliar structures interrupt comprehension."
         ],
         "c": 2,
@@ -1704,10 +1704,10 @@ const MODULES = {
           "Ignore the error entirely, since attention to form at any level interferes with fluency development.",
           "Have the class review irregular verbs together so the student hears the correction without being singled out.",
           "Return the sentence to the student marked in red, with the full rule for irregular past-tense verbs written out in the margin, and ask her to copy the corrected form three times to reinforce the accurate structure.",
-          "Recast naturally — 'Oh, you went to your cousin's house! What did you do there?' — and note the pattern for a future brief mini-lesson, recognizing 'goed' as developmental overgeneralization."
+          "Recast naturally ('Oh, you went to your cousin's house! What did you do there?') and note the pattern for a future brief mini-lesson, recognizing 'goed' as developmental overgeneralization."
         ],
         "c": 3,
-        "r": "'Goed' is overgeneralization of the regular past-tense rule — a sign the learner is actively constructing the grammar, not regressing. Recasts preserve meaning-focused communication while supplying the target form, and selective, planned form-focused instruction addresses patterns without derailing communication. Punitive copying and public whole-class corrections raise the affective filter, while ignoring form altogether forfeits the benefit of well-timed feedback."
+        "r": "'Goed' is overgeneralization of the regular past-tense rule, a sign the learner is actively constructing the grammar, not regressing. Recasts preserve meaning-focused communication while supplying the target form, and selective, planned form-focused instruction addresses patterns without derailing communication. Punitive copying and public whole-class corrections raise the affective filter, while ignoring form altogether forfeits the benefit of well-timed feedback."
       },
       {
         "s": "C2",
@@ -1733,7 +1733,7 @@ const MODULES = {
           "Is implemented with adequate resources, staffing, and practices to carry the theory out."
         ],
         "c": 1,
-        "r": "Castañeda established a three-prong test: sound theory, adequate implementation, and demonstrated results after a legitimate trial. Federal law deliberately does not mandate any single instructional model — districts retain flexibility in approach so long as the program passes all three prongs — so a designated federal model is the element a court would not look for."
+        "r": "Castañeda established a three-prong test: sound theory, adequate implementation, and demonstrated results after a legitimate trial. Federal law deliberately does not mandate any single instructional model; districts retain flexibility in approach as long as the program passes all three prongs. A designated federal model is therefore the element a court would not look for."
       },
       {
         "s": "C2",
@@ -1746,7 +1746,7 @@ const MODULES = {
           "Students' families add English at home while the school maintains the home language during the school day."
         ],
         "c": 2,
-        "r": "Additive bilingualism means the second language is acquired alongside continued growth in the first, yielding biliteracy — the design goal of Dual Language programs. Replacement of the home language describes subtractive bilingualism, extra English periods describe a scheduling arrangement rather than a language-development philosophy, and shifting English development to the family reverses how the model actually distributes languages."
+        "r": "Additive bilingualism means the second language is acquired alongside continued growth in the first, yielding biliteracy, which is the design goal of Dual Language programs. Replacement of the home language describes subtractive bilingualism, extra English periods describe a scheduling arrangement rather than a language-development philosophy, and shifting English development to the family reverses how the model actually distributes languages."
       },
       {
         "s": "C2",
@@ -1829,7 +1829,7 @@ const MODULES = {
         "a": [
           "Ask the ENL teacher to take over all of her literacy instruction so the ELA class can proceed without adjustments.",
           "Have her sit with the class during the unit but assess her only on attendance and effort until her English improves.",
-          "Provide access to the same unit through scaffolds — a plot summary in Spanish, a graphic novel or modified text version, focused foundational literacy instruction, and structured oral tasks tied to the play's themes.",
+          "Provide access to the same unit through scaffolds: a plot summary in Spanish, a graphic novel or modified text version, focused foundational literacy instruction, and structured oral tasks tied to the play's themes.",
           "Excuse the newly arrived student from the Romeo and Juliet unit altogether and place her on independent phonics software instead, keeping her there until her decoding skills reach an approximate grade-level benchmark."
         ],
         "c": 2,
@@ -1879,7 +1879,7 @@ const MODULES = {
         "d": "Literacy & Language Development for ELLs",
         "q": "An ENL teacher is choosing vocabulary to pre-teach before a 5th-grade article on volcanoes. The candidates are: 'the,' 'because of,' 'process,' 'analyze,' 'magma,' and 'pyroclastic.' Following tiered-vocabulary guidance for ELLs, which words deserve the most sustained instructional investment?",
         "a": [
-          "'Process' and 'analyze' — high-utility Tier 2 academic words that recur across texts and disciplines — while teaching the Tier 3 volcano terms briefly in context.",
+          "'Process' and 'analyze,' high-utility Tier 2 academic words that recur across texts and disciplines, while teaching the Tier 3 volcano terms briefly in context.",
           "'The' and 'because of,' since function words carry the grammar that ELLs most often lack.",
           "'Magma' and 'pyroclastic' deserve the most instructional time, because the technical geology terms are the hardest words in the passage and the classroom glossary already defines the remaining vocabulary well enough on its own.",
           "All six equally, since ELLs cannot be assumed to know any of the words in advance."
@@ -1895,7 +1895,7 @@ const MODULES = {
           "Let each ELL choose the version they prefer, since self-selection maximizes engagement.",
           "Use the below-level abridged version of the novel with the ELLs throughout the unit, on the reasoning that success with simpler text this year builds the reading confidence they will need to tackle grade-level text next year.",
           "Alternate novels: abridged in the fall to establish fluency, grade-level in the spring once scores rise.",
-          "Keep ELLs in the grade-level novel with scaffolds — chunked reading, glossaries, background-building, structured discussion — since sustained diet of simplified text denies access to the language and content they are owed."
+          "Keep ELLs in the grade-level novel with scaffolds (chunked reading, glossaries, background-building, structured discussion), since a steady diet of simplified text denies access to the language and content they are owed."
         ],
         "c": 3,
         "r": "Lau v. Nichols and the EEOA establish ELLs' right to meaningful access to the curriculum, and research shows a steady diet of simplified text caps exposure to the academic language ELLs must acquire; scaffolding grade-level text provides both access and challenge. Semester sequencing and student self-selection still institutionalize reduced exposure, and 'confidence first' reasoning is the classic rationale for the access gap itself."
@@ -1924,7 +1924,7 @@ const MODULES = {
           "Respond first to the ideas, then give targeted feedback on one or two high-leverage error patterns with examples, deferring the rest to later cycles."
         ],
         "c": 3,
-        "r": "Selective, patterned feedback — meaning first, then one or two teachable error categories — is what Emerging writers can actually absorb and act on; it sustains the willingness to write while moving accuracy forward. Comprehensive marking overwhelms and discourages, zero feedback forfeits learning that well-chosen correction provides, and demanding error-free revision from an Emerging-level writer sets an unattainable bar."
+        "r": "Selective, patterned feedback (meaning first, then one or two teachable error categories) is what Emerging writers can actually absorb and act on; it sustains the willingness to write while moving accuracy forward. Comprehensive marking overwhelms and discourages, zero feedback forfeits learning that well-chosen correction provides, and demanding error-free revision from an Emerging-level writer sets an unattainable bar."
       },
       {
         "s": "C2",
@@ -1937,7 +1937,7 @@ const MODULES = {
           "Activating and building schema so that new text information can attach to existing knowledge structures during reading."
         ],
         "c": 3,
-        "r": "Comprehension research shows readers construct meaning by integrating text with prior knowledge; activating relevant schema — especially through learners' own community experience — gives ELLs conceptual hooks that lower the language load of the text. The activity does not practice decoding, does not eliminate the need for during-reading scaffolds, and its purpose is preparation for the text, never triage out of it."
+        "r": "Comprehension research shows readers construct meaning by integrating text with prior knowledge; activating relevant schema, especially through learners' own community experience, gives ELLs conceptual hooks that lower the language load of the text. The activity does not practice decoding, does not eliminate the need for during-reading scaffolds, and its purpose is preparation for the text, never triage out of it."
       },
       {
         "s": "C2",
@@ -1945,12 +1945,12 @@ const MODULES = {
         "q": "A 4th-grade teacher of Spanish-speaking ELLs is planning vocabulary instruction for a text containing 'observe,' 'describe,' 'transform,' and 'estimate.' Which strategy takes fullest advantage of her students' linguistic assets?",
         "a": [
           "Provide English-only definitions with pictures, since visual support is the most universal scaffold.",
-          "Avoid mentioning Spanish equivalents so students learn to process the English words without translation crutches.",
+          "Avoid mentioning Spanish equivalents so students learn to process the English words directly, without leaning on translation as a crutch.",
           "Teach the words through daily spelling practice, since orthographic mastery precedes meaning.",
-          "Teach explicit cognate awareness — observar, describir, transformar, estimar — including how to spot and verify cognates and watch for false friends, so students can unlock English academic words through Spanish."
+          "Teach explicit cognate awareness (observar, describir, transformar, estimar), including how to verify cognates and spot false friends."
         ],
         "c": 3,
-        "r": "A large share of English academic vocabulary has Spanish cognates, and explicit cognate-awareness instruction — including false-cognate caution — converts students' home-language knowledge directly into English comprehension, the essence of asset-based literacy teaching. Withholding the connection discards free leverage, pictures alone are weaker than pictures plus cognates, and spelling drill addresses form without meaning."
+        "r": "A large share of English academic vocabulary has Spanish cognates, and explicit cognate-awareness instruction, including caution about false cognates, converts students' home-language knowledge directly into English comprehension, the essence of asset-based literacy teaching. Withholding the connection discards free leverage, pictures alone are weaker than pictures plus cognates, and spelling drill addresses form without meaning."
       },
       {
         "s": "C2",
@@ -2014,11 +2014,11 @@ const MODULES = {
       },
       {
         "title": "Collaborating with ENL and Bilingual Educators",
-        "body": "Collaboration between general-education teachers and ENL or bilingual educators is a pedagogical and regulatory expectation, not optional enrichment. In Integrated ENL co-teaching under Part 154, both teachers share planning, instruction, and assessment. In Stand-Alone contexts, collaboration means co-planning units so ENL instruction aligns with content objectives, sharing language-development data, and coordinating scaffolds. General-education teachers should share upcoming topics, key vocabulary, and text selections in advance so language objectives can be embedded. Best practice includes co-constructing language objectives alongside content objectives using language functions (define, compare, argue), analyzing English language proficiency results and classroom data together, and jointly communicating with families. Disagreements about a student's readiness to exit services are settled by the objective Part 154 exit criteria (Commanding on the annual English language proficiency assessment, or Expanding plus a proficient state ELA score), which collaboration cannot override. General-education teachers should not refer an ELL for special-education evaluation based solely on language-related academic struggles before adequate language support has been provided and progress monitored; doing so risks misidentification and conflicts with IDEA, which requires nondiscriminatory evaluation in the student's native language (34 CFR 300.304) and bars an eligibility finding when limited English proficiency is the determinant factor (34 CFR 300.306(b)). NYS sets no waiting period, however: a newly enrolled ELL with a suspected disability may be referred at any time."
+        "body": "Collaboration between general-education teachers and ENL or bilingual educators is a pedagogical and regulatory expectation, not optional enrichment. In Integrated ENL co-teaching under Part 154, both teachers share planning, instruction, and assessment. In Stand-Alone contexts, collaboration means co-planning units so ENL instruction aligns with content objectives, sharing language-development data, and coordinating scaffolds. General-education teachers should share upcoming topics, key vocabulary, and text selections in advance so language objectives can be embedded. Best practice includes co-constructing language objectives alongside content objectives using language functions (define, compare, argue), analyzing English language proficiency results and classroom data together, and jointly communicating with families. Disagreements about a student's readiness to exit services are settled by the objective Part 154 exit criteria (Commanding on the annual English language proficiency assessment, or Expanding plus a proficient state ELA score), which collaboration cannot override. General-education teachers should not submit a written request for a special education referral for an ELL based solely on language-related academic struggles before adequate language support has been provided and progress monitored; doing so risks misidentification and conflicts with IDEA, which requires nondiscriminatory evaluation in the student's native language (34 CFR 300.304) and bars an eligibility finding when limited English proficiency is the determinant factor (34 CFR 300.306(b)). NYS sets no waiting period, however: a newly enrolled ELL with a suspected disability may be referred at any time by a parent or a district designee, and school staff may submit a written request for referral at any time."
       },
       {
         "title": "Collaborating with Families of ELLs",
-        "body": "Under Title III of ESSA and NYS regulations, districts must notify families of a student's ELL identification, program placement, and annual proficiency results in a language the family can understand; this is a federal mandate, not a courtesy. Families have the legal right to decline bilingual instruction (while still receiving required ENL services) and must be told of this right in accessible language. Genuine family collaboration goes beyond translating documents to building partnerships that treat families' cultural and linguistic backgrounds as assets. Teachers should use trained, qualified interpreters for conferences rather than asking students to interpret, which is inappropriate and ethically problematic. Asset-based engagement includes community liaisons, multilingual communication, and inviting families' knowledge of their children's prior schooling and home literacy. FERPA (20 U.S.C. 1232g) protects all student education records, including NYSESLAT scores and ENL placement decisions, from disclosure to unauthorized parties. When families appear disengaged, teachers should examine structural barriers such as meeting times, transportation, childcare, and fear of immigration consequences rather than assuming a lack of interest in education."
+        "body": "Under ESSA (Title I, section 1112(e)(3)), Title VI of the Civil Rights Act, and CR Part 154, districts must notify families of a student's ELL identification, program placement, and annual proficiency results in a language the family can understand; this is a legal mandate, not a courtesy. Families have the legal right to decline bilingual instruction (while still receiving required ENL services) and must be told of this right in accessible language. Genuine family collaboration goes beyond translating documents to building partnerships that treat families' cultural and linguistic backgrounds as assets. Teachers should use trained, qualified interpreters for conferences rather than asking students to interpret, which is inappropriate and ethically problematic. Asset-based engagement includes community liaisons, multilingual communication, and inviting families' knowledge of their children's prior schooling and home literacy. FERPA (20 U.S.C. 1232g) protects all student education records, including English language proficiency test scores and ENL placement decisions, from disclosure to unauthorized parties. When families appear disengaged, teachers should examine structural barriers such as meeting times, transportation, childcare, and fear of immigration consequences rather than assuming a lack of interest in education."
       },
       {
         "title": "The NYS ELL Pathway: Identification, Placement, and Exit",
@@ -2033,7 +2033,7 @@ const MODULES = {
       {
         "s": "C2",
         "d": "ELL Assessment, Program Models & Collaboration",
-        "q": "A 6th-grade student scored Commanding on last spring's NYSESLAT and has exited ELL status. In October, her math teacher notices she is struggling with multi-step word problems and asks the ENL coordinator whether \"anything is still owed\" to this student. Which answer is correct under NYS regulations?",
+        "q": "A 6th-grade student scored Commanding on the spring 2026 NYSESLAT and has exited ELL status. In October, her math teacher notices she is struggling with multi-step word problems and asks the ENL coordinator whether \"anything is still owed\" to this student. Which answer is correct under NYS regulations?",
         "a": [
           "She should retake the NYSITELL so services can restart at the level indicated by the new score.",
           "As a Former ELL she is entitled to at least two years of monitoring with continued support services, and she remains eligible for ELL testing accommodations for two years after exiting.",
@@ -2067,7 +2067,7 @@ const MODULES = {
           "TBE uses Mandarin as a temporary bridge with a planned shift toward English-only instruction, while Dual Language develops full bilingualism and biliteracy in both languages."
         ],
         "c": 3,
-        "r": "The key distinction is program goal and language trajectory. TBE is a subtractive model: the home language is used instrumentally to accelerate English acquisition and is then phased out. Dual Language is an additive model targeting bilingualism and biliteracy for both ELLs and English-proficient students, with a sustained commitment to both languages. Families must be accurately informed of these differences to exercise their right under Part 154 to choose or decline a program. TBE is not legally mandated over Dual Language, the two models are not interchangeable, and Dual Language is specifically designed to serve mixed ELL and English-proficient groups together rather than English-fluent students only."
+        "r": "The key distinction is program goal and language trajectory. TBE uses the home language mainly as a bridge to English and then phases it out, so it is classed as a weaker, potentially subtractive model. Dual Language is an additive model with a sustained commitment to both languages, targeting bilingualism and biliteracy; two-way programs enroll ELLs together with English-proficient peers, and one-way programs serve students who share a home language. Families must be accurately informed of these differences to exercise their right under Part 154 to choose or decline a program. The strongest distractor reverses the models' audiences: Dual Language is not reserved for students who already speak some English, and newcomers can enroll in either model. TBE is not legally mandated over Dual Language, and the two models are not interchangeable."
       },
       {
         "s": "C2",
@@ -2085,15 +2085,15 @@ const MODULES = {
       {
         "s": "C2",
         "d": "ELL Assessment, Program Models & Collaboration",
-        "q": "A 3rd-grader transfers in October from another New York district, where she was identified as an ELL and scored Emerging on last spring's NYSESLAT. The receiving school's secretary schedules a new NYSITELL 'to restart the process.' What should the ENL coordinator do?",
+        "q": "A 3rd-grader transfers in October from another New York district, where she was identified as an ELL and scored Emerging on the spring 2026 NYSESLAT. The receiving school's secretary schedules a new NYSITELL 'to restart the process.' What should the ENL coordinator do?",
         "a": [
-          "Cancel the screener: the student's existing NYS identification and most recent NYSESLAT level follow her, and the school should place her promptly in services matched to her Emerging level.",
+          "Cancel the screener: her NYS identification and most recent proficiency level transfer with her, so she should be placed promptly in Emerging-level services.",
           "Administer both the NYSITELL and a district benchmark, then average the results to set her service level.",
-          "Allow the NYSITELL, since each district must establish its own baseline for services.",
-          "Pause all ENL services until the spring NYSESLAT provides current data."
+          "Allow the NYSITELL to proceed, since each district must establish its own baseline for services and cannot rely on identification records from another district.",
+          "Pause all ENL services until the spring English language proficiency test provides current data."
         ],
         "c": 0,
-        "r": "The NYSITELL is only for initial identification; a student already identified within New York State carries her ELL status and most recent proficiency level to the new district, which must continue mandated services at that level without interruption. Re-screening delays required services, waiting for the next annual NYSESLAT suspends them altogether, and averaging scores has no basis in Part 154."
+        "r": "The NYSITELL is only for initial identification; a student already identified within New York State carries her ELL status and most recent proficiency level to the new district, which must continue mandated services at that level without interruption. Re-screening delays required services, waiting for the next annual proficiency test suspends them altogether, and averaging scores has no basis in Part 154."
       },
       {
         "s": "C2",
@@ -2114,9 +2114,9 @@ const MODULES = {
         "q": "A CSE is planning the initial evaluation of a Spanish-speaking 2nd-grade ELL referred for a suspected learning disability. Which evaluation practice does IDEA require?",
         "a": [
           "Use nonverbal measures exclusively, so that language plays no role anywhere in the evaluation.",
-          "Assess in English only, since English performance is what determines success in a New York classroom.",
+          "Assess in English only, since English performance is what ultimately determines academic success in a New York classroom and on state tests.",
           "Postpone the evaluation until the student scores Transitioning or above, when English testing becomes valid.",
-          "Evaluate in the form and language most likely to yield accurate information about what the student knows and can do — here including Spanish — using multiple measures and qualified bilingual evaluators or interpreters."
+          "Evaluate in the language and form most likely to yield accurate information (here including Spanish), using multiple measures and qualified bilingual evaluators or interpreters."
         ],
         "c": 3,
         "r": "IDEA (34 CFR 300.304) requires that evaluations be administered in the child's native language or other mode most likely to yield accurate academic, developmental, and functional information, using multiple valid measures, so that language difference is not mistaken for disability. English-only testing builds the bias in, exclusively nonverbal batteries discard needed information about language-based learning, and delaying evaluation of a genuinely suspected disability violates child find."
@@ -2150,15 +2150,15 @@ const MODULES = {
       {
         "s": "C2",
         "d": "ELL Assessment, Program Models & Collaboration",
-        "q": "A 5th-grade teacher receives her class's NYSESLAT levels in September: two students at Entering, one at Expanding. She asks the ENL teacher how the levels should change what she does in the content classroom. Which answer best reflects proficiency-aligned scaffolding?",
+        "q": "A 5th-grade teacher receives her class's English language proficiency levels in September: two students at Entering, one at Expanding. She asks the ENL teacher how the levels should change what she does in the content classroom. Which answer best reflects proficiency-aligned scaffolding?",
         "a": [
-          "Entering students should receive heavy visual, home-language, and sentence-level supports with reduced linguistic output demands, while the Expanding student needs discourse-level scaffolds — paragraph frames, academic connectors — with output expectations near grade level.",
+          "Entering students need heavy visual, home-language, and sentence-level supports with reduced output demands; the Expanding student needs discourse-level scaffolds (paragraph frames, academic connectors) with near-grade-level output expectations.",
           "The Expanding-level student no longer requires any scaffolding, so the teacher's support planning for this class should center almost exclusively on the two newcomers who are still at the Entering level of proficiency.",
-          "Levels describe test performance, not instruction, so classroom practice should not vary by proficiency label.",
+          "Levels describe test performance rather than instruction, so classroom practice and scaffolding should not vary by a student's proficiency label.",
           "All three should receive identical supports so that no student is stigmatized by visibly different materials."
         ],
         "c": 0,
-        "r": "Proficiency levels exist to calibrate scaffolding: newcomers need meaning-level access (visuals, L1 supports, frames at the word and sentence level), while an Expanding student is refining extended academic discourse and needs supports pitched there. Identical treatment misserves both ends, ignoring the levels wastes the data, and Expanding students still require targeted support until exit at Commanding."
+        "r": "Proficiency levels exist to calibrate scaffolding: newcomers need meaning-level access (visuals, L1 supports, frames at the word and sentence level), while an Expanding student is refining extended academic discourse and needs supports pitched there. Identical treatment misserves both ends, ignoring the levels wastes the data, and Expanding students still require targeted support until they meet a state exit criterion (Commanding, or Expanding plus a proficient ELA score)."
       },
       {
         "s": "C2",
@@ -2236,7 +2236,7 @@ const MODULES = {
       },
       {
         "title": "Individualized Education Program (IEP): Structure & Instructional Integration",
-        "body": "Under IDEA, the Committee on Special Education (CSE) in New York develops the IEP for eligible students. The document must include present levels of academic achievement and functional performance (PLAAFP), annual measurable goals, special education services and supports, the extent of participation in general education, testing accommodations, and, in New York, transition planning beginning with the IEP in effect when the student turns 15. At least one general education teacher of the student is a required CSE member when the student is, or may be, in general education. Daily integration means embedding IEP goals into core instruction: a student whose IEP goal targets reading fluency practices timed oral reading during the regular ELA block, not only in pullout. Related-service recommendations (speech-language, OT, counseling) should coordinate with classroom routines, so an SLP's articulation targets can be reinforced during morning meeting. Progress toward annual goals must be reported to families at least as often as report cards are issued for general education students. A material failure to implement the services or accommodations in an IEP can deny the student a free appropriate public education (FAPE), and parents may respond with a state complaint or a due process complaint."
+        "body": "Under IDEA, the Committee on Special Education (CSE) in New York develops the IEP for eligible students. The document must include present levels of academic achievement and functional performance (PLAAFP), annual measurable goals, special education services and supports, the extent of participation in general education, testing accommodations, and, in New York, transition planning beginning with the IEP in effect when the student turns 15. At least one general education teacher of the student is a required CSE member when the student is, or may be, in general education. Daily integration means embedding IEP goals into core instruction: a student whose IEP goal targets reading fluency practices timed oral reading during the regular ELA block, not only in pullout. Related-service recommendations (speech-language, OT, counseling) should coordinate with classroom routines, so an SLP's articulation targets can be reinforced during morning meeting. The IEP must state when periodic reports on progress toward annual goals will be provided to families (for example, quarterly or concurrent with report cards), and those reports must be provided as written. A material failure to implement the services or accommodations in an IEP can deny the student a free appropriate public education (FAPE), and parents may respond with a state complaint or a due process complaint."
       },
       {
         "title": "Curriculum Modifications vs. Accommodations",
@@ -2252,7 +2252,7 @@ const MODULES = {
       },
       {
         "title": "Least Restrictive Environment (LRE) & Continuum of Services",
-        "body": "IDEA's LRE mandate requires that students with disabilities be educated with nondisabled peers to the maximum extent appropriate. New York's continuum of services, ordered from least to most restrictive, includes: general education with related services and supplementary aids; consultant teacher services (direct and/or indirect support in the general education class); resource room (supplemental small-group instruction for part of the day); integrated co-teaching (ICT, a general education class co-taught by a general and special education teacher); special class (a self-contained setting such as 12:1:1 or 15:1); separate (specialized) school; and home or hospital instruction. The CSE team, not an individual teacher, determines placement, which must be the least restrictive setting where the student's goals can be met with appropriate supports. Removal from general education must be justified in the IEP by documenting why supplementary aids and services are not adequate there. Placement is reviewed at least annually and is distinct from the eligibility determination. New York's Dignity for All Students Act (DASA) adds an obligation to maintain an environment free from harassment and discrimination. LRE applies across academic, nonacademic, and extracurricular activities."
+        "body": "IDEA's LRE mandate requires that students with disabilities be educated with nondisabled peers to the maximum extent appropriate. New York's continuum of services, ordered from least to most restrictive, includes: general education with related services and supplementary aids; consultant teacher services (direct and/or indirect support in the general education class); resource room (supplemental small-group instruction for part of the day); integrated co-teaching (ICT, a general education class co-taught by a general and special education teacher); special class (a self-contained setting such as 15:1 or 12:1+1); separate (specialized) school; and home or hospital instruction. The CSE team, not an individual teacher, determines placement, which must be the least restrictive setting where the student's goals can be met with appropriate supports. Removal from general education must be justified in the IEP by documenting why supplementary aids and services are not adequate there. Placement is reviewed at least annually and is distinct from the eligibility determination. New York's Dignity for All Students Act (DASA) adds an obligation to maintain an environment free from harassment and discrimination. LRE applies across academic, nonacademic, and extracurricular activities."
       },
       {
         "title": "Sensory, Physical, Communication & Low-Incidence Disabilities",
@@ -2319,7 +2319,7 @@ const MODULES = {
       {
         "s": "C3",
         "d": "Disability Characteristics & Individualized Instruction",
-        "q": "A 3rd-grade student with autism has an IEP goal for flexible transitions between activities. His teacher notices meltdowns cluster at unstructured moments — lining up, switching subjects, indoor recess. Which proactive strategy best fits his profile?",
+        "q": "A 3rd-grade student with autism has an IEP goal for flexible transitions between activities. His teacher notices meltdowns cluster at unstructured moments: lining up, switching subjects, indoor recess. Which proactive strategy best fits his profile?",
         "a": [
           "Remove the student from the room at the first sign of agitation each time so the class is not disrupted.",
           "Wait to intervene until a meltdown occurs, then deliver a calm-down consequence so the student learns the expectation.",
@@ -2327,7 +2327,7 @@ const MODULES = {
           "Post and preview a visual schedule, give timed warnings before transitions, and teach a brief transition routine, adjusting the environment before difficulties occur."
         ],
         "c": 3,
-        "r": "Predictability supports — visual schedules, transition warnings, and taught routines — are antecedent strategies that prevent dysregulation for many students with autism and align with the flexible-transition goal. Deliberately increasing unpredictability escalates the very trigger identified, routine removal is reactive and excludes the student from instruction, and waiting for the meltdown abandons the proactive design the data call for."
+        "r": "Predictability supports (visual schedules, transition warnings, and taught routines) are antecedent strategies that prevent dysregulation for many students with autism and align with the flexible-transition goal. Deliberately increasing unpredictability escalates the very trigger identified, routine removal is reactive and excludes the student from instruction, and waiting for the meltdown abandons the proactive design the data call for."
       },
       {
         "s": "C3",
@@ -2348,12 +2348,12 @@ const MODULES = {
         "q": "A 4th-grade student is classified with an Other Health Impairment for ADHD. During a lesson, a paraprofessional completes the student's graphic organizer for him 'to keep him moving.' The special education teacher should explain that:",
         "a": [
           "The student should be moved out of the general education setting and into a resource room, where a certified special education teacher, rather than a paraprofessional, can complete the graphic-organizer tasks alongside him.",
-          "The para should instead prompt and scaffold the student to complete the organizer himself — cueing, chunking, checking in — so support builds independence rather than replacing the student's thinking.",
+          "The para should instead prompt and scaffold the student to complete the organizer himself (cueing, chunking, checking in) so support builds independence rather than replacing the student's thinking.",
           "The support is appropriate because it keeps the student on pace with peers and reduces his frustration.",
           "Graphic organizers should be removed from his plan, since needing help to fill one out shows the tool is too advanced."
         ],
         "c": 1,
-        "r": "Effective paraprofessional support fosters independence through prompting, cueing, and fading, not task completion that substitutes for the student's cognition; doing the work for him fosters prompt dependence and masks his actual skill. Relocation is unwarranted for a support-delivery problem, and the organizer is an appropriate scaffold — the issue is how the adult is using it, not the tool itself."
+        "r": "Effective paraprofessional support fosters independence through prompting, cueing, and fading, not task completion that substitutes for the student's cognition; doing the work for him fosters prompt dependence and masks his actual skill. Relocation is unwarranted for a support-delivery problem, and the organizer is an appropriate scaffold; the issue is how the adult is using it, not the tool itself."
       },
       {
         "s": "C3",
@@ -2366,7 +2366,7 @@ const MODULES = {
           "Text-to-speech is an accommodation that changes how the student accesses text, not the social studies content being assessed; withholding credit for using it penalizes the student for his disability and fails to implement the IEP."
         ],
         "c": 3,
-        "r": "For a student whose disability affects decoding, text-to-speech removes the access barrier so the social studies construct — not decoding — is what's measured; grading down its use penalizes the disability and constitutes failure to implement the IEP, which can deny FAPE. Restricting the accommodation to homework and 'available if he'd chosen print' both narrow what the IEP guarantees, which a teacher may not unilaterally do."
+        "r": "For a student whose disability affects decoding, text-to-speech removes the access barrier so the social studies construct, not decoding, is what's measured; grading down its use penalizes the disability and constitutes failure to implement the IEP, which can deny FAPE. Restricting the accommodation to homework and 'available if he'd chosen print' both narrow what the IEP guarantees, which a teacher may not unilaterally do."
       },
       {
         "s": "C3",
@@ -2465,7 +2465,7 @@ const MODULES = {
       },
       {
         "title": "Response to Intervention (RtI) and PBIS",
-        "body": "Response to Intervention (RtI) is a multi-tiered framework, situated within Multi-Tiered Systems of Support (MTSS), that delivers high-quality, evidence-based instruction matched to need with frequent progress monitoring. Tiers move from universal core instruction (Tier 1) to targeted small-group intervention (Tier 2) to intensive individualized intervention (Tier 3). IDEA 2004 permits districts to use RtI data instead of an IQ-achievement discrepancy when identifying a specific learning disability (SLD); in New York, districts are prohibited from using the severe-discrepancy model and must use an RtI process to identify an SLD in reading in grades K-4. Positive behavioral interventions and supports (PBIS) apply the same tiered logic to behavior: school-wide expectations at Tier 1, targeted group supports at Tier 2, and individualized function-based plans at Tier 3. IDEA requires that when a student's behavior impedes their learning or that of others, the IEP team consider the use of positive behavioral interventions and supports and other strategies to address it. Critically, an RtI process may not be used to delay or deny a special education evaluation; child find and a parent's right to request an evaluation operate independently of how many tiers have been tried."
+        "body": "Response to Intervention (RtI) is a multi-tiered framework, situated within Multi-Tiered Systems of Support (MTSS), that delivers high-quality, evidence-based instruction matched to need with frequent progress monitoring. Tiers move from universal core instruction (Tier 1) to targeted small-group intervention (Tier 2) to intensive individualized intervention (Tier 3). IDEA 2004 permits districts to use RtI data instead of an IQ-achievement discrepancy when identifying a specific learning disability (SLD); in New York, a CSE may not use the severe-discrepancy criterion to identify a learning disability in reading in kindergarten through grade 4, so every district must have an RtI process for K-4 reading (8 NYCRR 200.4(j)). Positive behavioral interventions and supports (PBIS) apply the same tiered logic to behavior: school-wide expectations at Tier 1, targeted group supports at Tier 2, and individualized function-based plans at Tier 3. IDEA requires that when a student's behavior impedes their learning or that of others, the IEP team consider the use of positive behavioral interventions and supports and other strategies to address it. Critically, an RtI process may not be used to delay or deny a special education evaluation; child find and a parent's right to request an evaluation operate independently of how many tiers have been tried."
       },
       {
         "title": "The CSE Process: Referral, Evaluation & IEP Development",
@@ -2492,7 +2492,7 @@ const MODULES = {
           "Request that the school psychologist administer a cognitive assessment to determine whether an IQ-achievement discrepancy exists before further intervention time is invested."
         ],
         "c": 0,
-        "r": "After only one month of whole-class differentiation with no individualized data, the sound next step is to implement a tiered, evidence-based intervention with progress monitoring so the teacher gathers data on the student's response; New York requires an RtI process for identifying a reading SLD in grades K-4. Crucially, RtI cannot be used to delay or deny an evaluation, so the teacher must also recognize the family's right to request a CSE referral at any time. An immediate IQ test is misguided because NY prohibits the severe-discrepancy model for K-4 reading SLD; a 504 Plan cannot be assigned without evaluation; and doing nothing all year improperly treats RtI as a barrier to, rather than a precursor of, identification."
+        "r": "After only one month of whole-class differentiation with no individualized data, the sound next step is to implement a tiered, evidence-based intervention with progress monitoring so the teacher gathers data on the student's response. New York requires every district to have an RtI process for K-4 reading, and a CSE may not use severe discrepancy to find a learning disability in reading in those grades (8 NYCRR 200.4(j)). Crucially, RtI cannot be used to delay or deny an evaluation, so the teacher must also recognize the family's right to request a CSE referral at any time. The strongest distractor, the immediate IQ test, is misguided because a discrepancy finding cannot establish a reading learning disability for this third grader in New York, and skipping intervention leaves lack of appropriate instruction unexamined. A 504 Plan cannot be assigned without evaluation, and doing nothing all year improperly treats RtI as a barrier to, rather than a precursor of, identification."
       },
       {
         "s": "C3",
@@ -2583,7 +2583,7 @@ const MODULES = {
           "Sharply increase office referrals and disciplinary consequences for the roughly twenty percent of students who need more support, since the current universal Tier 1 supports are clearly failing to deter their behavior."
         ],
         "c": 2,
-        "r": "A multi-tiered system layers supports: universal Tier 1 for all, targeted Tier 2 for students who need more, and intensive Tier 3 for the few with the greatest need — the roughly 80/15/5 distribution is the model working as designed. Dismantling Tier 1 removes the foundation, wholesale CSE referral confuses need for intervention with disability, and escalating punishment contradicts PBIS's teach-and-reinforce logic."
+        "r": "A multi-tiered system layers supports: universal Tier 1 for all, targeted Tier 2 for students who need more, and intensive Tier 3 for the few with the greatest need. The roughly 80/15/5 distribution is the model working as designed. Dismantling Tier 1 removes the foundation, wholesale CSE referral confuses need for intervention with disability, and escalating punishment contradicts PBIS's teach-and-reinforce logic."
       },
       {
         "s": "C3",
@@ -2738,7 +2738,7 @@ const MODULES = {
         "d": "Collaboration, Assistive Technology & Service Delivery",
         "q": "In an Integrated Co-Teaching (ICT) 5th-grade class, the two certified teachers currently use one-teach-one-assist for every lesson, with the special educator always assisting. A coach suggests varying models. Which change best reflects effective co-teaching?",
         "a": [
-          "Deliberately vary models — station teaching, parallel teaching, team teaching — matched to the lesson's purpose, with both teachers leading instruction at different times.",
+          "Deliberately vary models (station teaching, parallel teaching, team teaching) matched to the lesson's purpose, with both teachers leading instruction at different times.",
           "Keep one-teach-one-assist permanently, since a single consistent model is least confusing for students.",
           "Have the special educator lead on days the general educator is absent and assist otherwise.",
           "Split the class each period so that the special educator teaches the students who have IEPs together in a back corner of the room while the general education teacher delivers the lesson to all of the remaining students."
@@ -2857,7 +2857,7 @@ const MODULES = {
     "concepts": [
       {
         "title": "Students' Rights: Accommodations, Due Process, and Discipline",
-        "body": "Federal law guarantees students procedural safeguards that teachers must uphold daily. IDEA (2004) mandates that students with disabilities receive a free appropriate public education (FAPE) in the least restrictive environment (LRE) and that parents receive prior written notice before any proposed change in identification, evaluation, placement, or services. Section 504 of the Rehabilitation Act prohibits disability-based discrimination and requires reasonable accommodations, including testing accommodations such as extended time, separate setting, or read-aloud, documented in a 504 Plan. Disciplinary removals that exceed 10 consecutive school days (or that form a pattern of removals constituting a change in placement) trigger a manifestation determination review (MDR) for a student with a disability. Title IX (Education Amendments of 1972) prohibits sex-based discrimination in any federally funded education program, covering sexual harassment, athletic equity, and related retaliation. A teacher must never independently deny an accommodation documented in an IEP or 504 Plan; doing so violates federal law regardless of the teacher's instructional rationale. When uncertain about a student's rights, the appropriate first step is consulting the CSE chairperson or building administrator, not unilaterally deciding."
+        "body": "Federal law guarantees students procedural safeguards that teachers must uphold daily. IDEA (2004) mandates that students with disabilities receive a free appropriate public education (FAPE) in the least restrictive environment (LRE) and that parents receive prior written notice before any proposed change in identification, evaluation, placement, or services. Section 504 of the Rehabilitation Act prohibits disability-based discrimination and requires reasonable accommodations, including testing accommodations such as extended time, separate setting, or read-aloud, documented in a 504 Plan. For a student with a disability, a decision to change placement for discipline (a removal of more than 10 consecutive school days, or a pattern of removals) requires a manifestation determination review (MDR) within 10 school days of that decision. Title IX (Education Amendments of 1972) prohibits sex-based discrimination in any federally funded education program, covering sexual harassment, athletic equity, and related retaliation. A teacher must never independently deny an accommodation documented in an IEP or 504 Plan; doing so violates federal law regardless of the teacher's instructional rationale. When uncertain about a student's rights, the appropriate first step is consulting the CSE chairperson or building administrator, not unilaterally deciding."
       },
       {
         "title": "FERPA: Confidentiality and Student Records",
@@ -2948,12 +2948,12 @@ const MODULES = {
       {
         "s": "C4",
         "d": "Teacher Responsibilities: Legal & Ethical Judgment",
-        "q": "A first-year teacher is unsure whether a colleague's plan to post students' ranked test scores on the classroom wall — by student ID number, not name — is permissible. What is the most accurate guidance under FERPA?",
+        "q": "A first-year teacher is unsure whether a colleague's plan to post students' ranked test scores on the classroom wall, listed by student ID number rather than name, is permissible. What is the most accurate guidance under FERPA?",
         "a": [
-          "Personally identifiable information under FERPA includes indirect identifiers like ID numbers that classmates can link to individuals, so posting ranked scores this way risks unlawful disclosure of education records.",
-          "It is permissible as long as the teacher removes the posting within 24 hours.",
-          "FERPA does not apply to classroom assessments, only to the official transcript and cumulative file.",
-          "It is fine because ID numbers, not names, are used, so no student is personally identifiable."
+          "FERPA protects indirect identifiers, such as ID numbers classmates can link to a student, so this posting risks unlawful disclosure.",
+          "It is permissible as long as the teacher takes the posting down within 24 hours, before most families would have a chance to see it.",
+          "FERPA does not apply to classroom assessments; it covers only the official transcript and the cumulative file kept in the main office.",
+          "It is fine because ID numbers, not names, are used, so no individual student can be personally identified from the posted list."
         ],
         "c": 0,
         "r": "FERPA's definition of personally identifiable information includes indirect identifiers, such as a student ID number that peers can associate with a particular student; posting ranked scores keyed to those numbers can disclose protected education records without consent. A short display window does not cure the disclosure, and FERPA protections extend to graded classroom records, not just the transcript."
@@ -2974,54 +2974,54 @@ const MODULES = {
       {
         "s": "C4",
         "d": "Teacher Responsibilities: Legal & Ethical Judgment",
-        "q": "A veteran teacher tells a novice, 'Reflection is just second-guessing yourself; experience is what makes you better.' Based on the professional expectations in the EAS framework and the NYS Code of Ethics, the most accurate reply is that reflective practice:",
+        "q": "A father emails his son's teacher asking to inspect everything in the boy's school file, including evaluations and discipline reports. The family is not in any dispute with the school, and no meeting is scheduled. Under FERPA, how must the school respond?",
         "a": [
-          "Should focus on student deficits, identifying which learners are holding back overall class performance.",
-          "Reflection is best kept private and informal, on the reasoning that any written documentation of one's own instructional weaknesses could later be used against the teacher during a formal evaluation or observation cycle.",
-          "Is a structured, evidence-based cycle — collect evidence, analyze patterns, adjust practice, evaluate impact — that turns experience into deliberate improvement, especially around equity.",
-          "Matters mainly for new teachers and can be set aside once one has several years in the classroom."
-        ],
-        "c": 2,
-        "r": "Reflective practice is a disciplined, cyclical use of evidence to examine and improve one's own teaching — the teacher, not the student, is the object of analysis — and it is a career-long professional expectation tied explicitly to equity. It is not a novice-only phase, not something to hide, and not a search for student deficits, which inverts the practice into blame."
-      },
-      {
-        "s": "C4",
-        "d": "Teacher Responsibilities: Legal & Ethical Judgment",
-        "q": "A teacher plans a summative unit test. To strengthen the validity of the assessment, she should above all ensure that the test:",
-        "a": [
-          "Is difficult enough that the class average lands near 70%, so scores spread out.",
-          "Aligns its items to the unit's stated learning objectives, so that it measures what students were taught and intended to learn.",
-          "Contains only multiple-choice items, since they can be scored objectively.",
-          "Match the format and item types of last year's version of the unit test as closely as possible, so that the current cohort's scores can be directly compared against the performance of the previous year's students."
-        ],
-        "c": 1,
-        "r": "Validity concerns whether an assessment measures what it intends to measure; alignment between items and the unit's learning objectives is the core of content validity. A target average controls difficulty, not validity, exclusive multiple choice serves scoring reliability rather than construct coverage, and format continuity aids comparison but does not establish that the test measures the intended learning."
-      },
-      {
-        "s": "C4",
-        "d": "Teacher Responsibilities: Legal & Ethical Judgment",
-        "q": "Reviewing exit-ticket data, a teacher finds that a strategy she has used for years is not producing the intended learning for her current class. The most professionally responsible response is to:",
-        "a": [
-          "Analyze the data, consult research and colleagues, and adjust her instruction to fit the learners in front of her, then monitor whether the change improves results.",
-          "Attribute the disappointing results to this year's group of students simply being less capable than her previous classes, and adjust by lowering her expectations for what they can reasonably be expected to achieve.",
-          "Continue the strategy, since it has worked with previous classes and consistency matters.",
-          "Wait for the summative assessment to confirm the pattern before changing anything."
+          "Let him inspect and review the records within a reasonable time, no later than 45 days after the request, and answer reasonable questions about them.",
+          "Require the father to state in writing why he wants the records, since parents may see them only for a documented educational purpose.",
+          "Give him only a summary prepared by the principal, because parents may see evaluations only when a school psychologist is present to interpret them.",
+          "Mail him free photocopies of every record within five school days, because FERPA requires schools to supply copies on demand."
         ],
         "c": 0,
-        "r": "Professional practice treats formative evidence as a prompt to adapt: analyze the data, draw on research and colleagues, revise instruction, and check the effect. Persisting because a method worked before ignores current evidence, attributing failure to student deficits abandons the teacher's responsibility, and waiting for the summative test forgoes timely correction the formative data already justify."
+        "r": "FERPA gives parents the right to inspect and review their child's education records: the school must comply within a reasonable time, no more than 45 days after the request, and respond to reasonable requests for explanation (IDEA adds that, for a student with a disability, access comes without unnecessary delay and before any IEP meeting or hearing). A parent does not have to justify the request. The strongest distractor, free copies within five days, misstates the rule: a school must provide copies only when failing to do so would effectively prevent the parent from inspecting the records, and there is no five-day deadline. Nothing limits a parent to a principal's summary or requires a psychologist to be present."
+      },
+      {
+        "s": "C4",
+        "d": "Teacher Responsibilities: Legal & Ethical Judgment",
+        "q": "A 3rd grader's IEP mandates speech-language therapy twice a week. Her teacher realizes the student has not been seen for speech in four weeks because the provider has been on leave and no coverage was arranged. What is the teacher's MOST appropriate action?",
+        "a": [
+          "Say nothing, because staffing gaps are an administrative matter and raising them could expose the district to a complaint.",
+          "Notify the administrator or CSE chairperson in writing, listing the missed session dates, so the district can arrange coverage and make-up services.",
+          "Run speech-language sessions herself during independent reading time, using articulation activities she finds online, until the provider returns.",
+          "Wait until the annual review and then recommend reducing the speech mandate, since the student seems to be managing without the service."
+        ],
+        "c": 1,
+        "r": "Advocating to meet student needs is a core teacher responsibility. The IEP is a binding commitment, and missed mandated services must go to the people who can fix the gap: the administrator or CSE chairperson can arrange coverage and make-up sessions, and a written record of the dates supports that. The strongest distractor, running sessions herself, looks helpful but substitutes unqualified instruction for the related service the IEP requires and leaves the gap unreported. Staying silent puts the institution ahead of the student, and waiting to cut the mandate treats a service failure as evidence the service is unnecessary."
+      },
+      {
+        "s": "C4",
+        "d": "Teacher Responsibilities: Legal & Ethical Judgment",
+        "q": "After losing their apartment, a family moves in with relatives in another district. The mother wants her 5th grader to keep attending his current school, but the main office tells her he must transfer because the family no longer lives in the attendance zone. The student's teacher hears the exchange. What is the teacher's MOST appropriate step?",
+        "a": [
+          "Tell the mother the office is correct, because enrollment follows residence and the relatives' address now determines which school the boy attends.",
+          "Let the transfer proceed and send the new school a summary of the student's progress so the move goes as smoothly as possible.",
+          "Advise the mother to keep listing her old address on school forms so her son can stay enrolled without drawing attention.",
+          "Alert the district's McKinney-Vento liaison, since a student doubled up after losing housing may stay in his school of origin, with transportation."
+        ],
+        "c": 3,
+        "r": "Under McKinney-Vento and Education Law 3209, a student sharing housing because of loss of housing is homeless, and the parent, as designator, may choose the school of origin for the duration of homelessness, with transportation provided. Every district has a liaison to resolve these questions, and the student stays enrolled while any dispute is settled. The strongest distractor, smoothing the transfer, sounds cooperative but gives up a right the family holds. Residence-based enrollment rules do not control here, and coaching the parent to misstate her address is dishonest and unnecessary."
       },
       {
         "s": "C4",
         "d": "Teacher Responsibilities: Legal & Ethical Judgment",
         "q": "A school counselor asks a teacher to email a student's full psychological evaluation to a private tutor the family hired, saying 'the parents are fine with it.' What should the teacher do before sending anything?",
         "a": [
-          "Send only the summary page, since partial disclosure does not require consent.",
-          "Verify that the district has the parents' written, signed consent specifying disclosure to that outside party, and route the release through the appropriate records process rather than emailing it herself.",
-          "Refuse outright, since evaluation records may never be shared with anyone outside the school.",
-          "Send it, since the counselor relayed that the parents consented."
+          "Send only the summary page, since disclosing part of an evaluation does not require the parents' written consent.",
+          "Confirm the district has the parents' signed, written consent naming the tutor, and route the release through the records office instead of emailing it.",
+          "Refuse outright, since evaluation records may never be shared with anyone outside the school under any circumstances.",
+          "Send it as requested, since the counselor has relayed that the parents consented and the tutor is working on the student's behalf."
         ],
         "c": 1,
-        "r": "FERPA requires written, signed parental consent specifying the records and the recipient before disclosing personally identifiable education records to an outside party; a verbally relayed 'they're fine with it' is not documented consent, and formal releases go through the records process. Partial disclosure still discloses protected content, but a blanket refusal is also wrong — records may be shared with proper consent."
+        "r": "FERPA requires written, signed parental consent specifying the records and the recipient before disclosing personally identifiable education records to an outside party; a verbally relayed 'they're fine with it' is not documented consent, and formal releases go through the records process. Partial disclosure still discloses protected content, but a blanket refusal is also wrong: records may be shared with proper consent."
       },
       {
         "s": "C4",
@@ -3031,10 +3031,10 @@ const MODULES = {
           "Assign a classmate to stay behind with the student until first responders arrive.",
           "Leave all of the evacuation planning to the building's designated safety officer, on the understanding that the logistics of emergency egress fall outside the professional role and responsibilities of a classroom teacher.",
           "Carry the student down the stairs herself in an emergency, improvising as needed.",
-          "Ensure an individualized emergency evacuation plan is in place in advance — coordinating with administration on accessible egress, an area of refuge, and assigned assistance — and practice it."
+          "Work with administration in advance to put an individualized emergency evacuation plan in place (accessible egress, an area of refuge, and assigned assistance) and practice it."
         ],
         "c": 3,
-        "r": "Student safety obligations require proactive, individualized emergency planning for students with mobility needs — accessible routes, areas of refuge, assigned trained assistance, and practice — arranged in advance with administration. Improvised carrying risks injury, leaving a peer behind endangers two students, and deferring entirely disclaims the teacher's shared duty to know and rehearse the plan for her own students."
+        "r": "Student safety obligations require proactive, individualized emergency planning for students with mobility needs (accessible routes, areas of refuge, assigned trained assistance, and practice), arranged in advance with administration. Improvised carrying risks injury, leaving a peer behind endangers two students, and deferring entirely disclaims the teacher's shared duty to know and rehearse the plan for her own students."
       },
       {
         "s": "C4",
@@ -3164,7 +3164,7 @@ const MODULES = {
       },
       {
         "title": "Barriers to Communication: Accessibility & Cross-Cultural Factors",
-        "body": "Multiple factors can impede meaningful family engagement. Structural barriers include work schedules that conflict with school hours, lack of transportation, and limited access to technology or internet. Linguistic barriers arise when families have limited English proficiency; schools are obligated under Title VI of the Civil Rights Act, as clarified by federal Office for Civil Rights guidance, to provide meaningful access to school programs, which includes translated or interpreted communications and qualified interpreters, not reliance on the student or other children as interpreters. Cultural barriers involve differing conceptions of parental involvement, authority relationships with educators, and historical mistrust of institutions, particularly among Black, Indigenous, and immigrant communities. Cross-cultural competence requires teachers to recognize that deference to educators, limited physical presence at school, or indirect communication styles are not indicators of disengagement; they may reflect cultural norms. New York's Dignity for All Students Act (DASA) reinforces the broader obligation to create inclusive, respectful school environments, an ethic that should extend to family interactions. Teachers who conflate cultural difference with deficiency undermine partnership. Effective communicators adapt style and channel (text, app, paper, phone) to what works for each family."
+        "body": "Multiple factors can impede meaningful family engagement. Structural barriers include work schedules that conflict with school hours, lack of transportation, and limited access to technology or internet. Linguistic barriers arise when families have limited English proficiency; schools are obligated under Title VI of the Civil Rights Act, as clarified by federal Office for Civil Rights guidance, to provide meaningful access to school programs, which includes translated or interpreted communications and qualified interpreters, not reliance on the student or other children as interpreters. Cultural barriers involve differing conceptions of parental involvement, authority relationships with educators, and historical mistrust of institutions, particularly among Black, Indigenous, and immigrant communities. Cross-cultural competence requires teachers to recognize that deference to educators, limited physical presence at school, or indirect communication styles are not indicators of disengagement; they may reflect cultural norms. New York's Culturally Responsive-Sustaining (CR-S) Education Framework likewise calls on schools to build a welcoming and affirming environment and to treat families' cultural knowledge as an asset. Teachers who conflate cultural difference with deficiency undermine partnership. Effective communicators adapt style and channel (text, app, paper, phone) to what works for each family."
       },
       {
         "title": "Parent-Teacher Conferences: Purpose & Best Practices",
@@ -3391,7 +3391,7 @@ const CR_PROMPTS = [
   {
     "id": "cr-diverse",
     "title": "Diverse Student Populations · Case Study",
-    "scenario": "Ms. Okafor teaches a Grade 4 inclusive general-education classroom of 24 students at Roosevelt Elementary, a Title I school in a mid-sized urban district. The class reflects a wide range of backgrounds: seven students are English Language Learners (ELLs) at varying New York State proficiency levels from the NYSITELL or last spring's NYSESLAT (two Entering, three Emerging, two Transitioning), three students have IEPs for learning disabilities, and several students are from low-income households with limited access to print-rich home environments. The majority of students speak Spanish as a home language; two students recently arrived from West Africa and speak Twi as their first language.\n\nThe class is currently in a unit on informational reading and expository writing. Exhibit A shows Ms. Okafor's anecdotal journal noting that her two Entering-level ELL students, Marco and Amara, rarely participate in whole-class discussions and scored below 60% on the most recent close-reading comprehension check. Exhibit B presents a draft two-day lesson plan that relies heavily on whole-class read-aloud of an on-grade-level text followed by an independent written response with no scaffolds, modified texts, or visual supports provided. Academic vocabulary is introduced verbally but never posted or illustrated. Ms. Okafor's journal further notes that Marco and Amara frequently look to peers for cues before attempting tasks and have not yet submitted two writing assignments.",
+    "scenario": "Ms. Okafor teaches a Grade 4 inclusive general-education classroom of 24 students at Roosevelt Elementary, a Title I school in a mid-sized urban district. The class reflects a wide range of backgrounds: seven students are English Language Learners (ELLs) at varying points on New York State's five-level Part 154 proficiency scale, as determined by the NYSITELL or the state's annual English language proficiency test (two Entering, three Emerging, two Transitioning), three students have IEPs for learning disabilities, and several students are from low-income households with limited access to print-rich home environments. The majority of students speak Spanish as a home language; two students recently arrived from West Africa and speak Twi as their first language.\n\nThe class is currently in a unit on informational reading and expository writing. Exhibit A shows Ms. Okafor's anecdotal journal noting that her two Entering-level ELL students, Marco and Amara, rarely participate in whole-class discussions and scored below 60% on the most recent close-reading comprehension check. Exhibit B presents a draft two-day lesson plan that relies heavily on whole-class read-aloud of an on-grade-level text followed by an independent written response with no scaffolds, modified texts, or visual supports provided. Academic vocabulary is introduced verbally but never posted or illustrated. Ms. Okafor's journal further notes that Marco and Amara frequently look to peers for cues before attempting tasks and have not yet submitted two writing assignments.",
     "task": "Using the information provided in the exhibits, write a response in which you:\n\n1. IDENTIFY one significant issue related to student diversity, evident in the exhibits, that is affecting the learning of one or more students in Ms. Okafor's classroom;\n\n2. DESCRIBE one specific, research- or evidence-based instructional strategy or modification that Ms. Okafor could implement to address the identified issue; and\n\n3. EXPLAIN why the strategy you described would be effective in addressing the identified issue and supporting the academic growth of the student(s) involved.\n\nYour response will be evaluated on the degree to which it accurately analyzes the exhibits, applies sound pedagogical principles, and supports its claims with specific evidence from the provided materials. The suggested response length is approximately 150 to 200 words.",
     "rubric": [
       {
