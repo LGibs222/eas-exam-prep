@@ -41,23 +41,43 @@ export function useTTSState(token) {
   return currentState
 }
 
+// Resolver for the playback in flight, so callers can await the end of a clip
+// (the lesson player reads a screen block by block and highlights each one).
+let pendingDone = null
+function settle(finished) { const fn = pendingDone; pendingDone = null; if (fn) fn(finished) }
+
 export function stopTTS() {
   const a = getAudio()
   try { a.pause(); a.currentTime = 0 } catch {}
   setCurrent(null, 'idle')
+  settle(false)
+}
+
+let ttsRate = 1
+export function setTTSRate(r) { ttsRate = r; try { getAudio().playbackRate = r } catch {} }
+
+// Same as playTTS, but resolves true when the clip plays to the end and false
+// when it is stopped, replaced, or refused.
+export function playTTSAsync(text, token) {
+  return new Promise(resolve => {
+    playTTS(text, token, resolve)
+  })
 }
 
 // text: a string, or an array of the app's own strings read in order (the backend
 // checks each piece against the app's published content).
-export async function playTTS(text, token) {
-  if (!isConfigured() || !(Array.isArray(text) ? text.join('') : text)) return
+export async function playTTS(text, token, onDone) {
+  if (!isConfigured() || !(Array.isArray(text) ? text.join('') : text)) { onDone?.(false); return }
   const audio = getAudio()
   // If this same token is currently playing, treat as toggle-stop.
   if (currentToken === token && currentState === 'playing') {
     stopTTS()
+    onDone?.(false)
     return
   }
   try { audio.pause(); audio.currentTime = 0 } catch {}
+  settle(false)
+  pendingDone = onDone || null
   setCurrent(token, 'loading')
   try {
     let code = '', name = ''
@@ -74,13 +94,17 @@ export async function playTTS(text, token) {
     const blob = await res.blob()
     const url = URL.createObjectURL(blob)
     audio.src = url
-    audio.onended = () => { URL.revokeObjectURL(url); setCurrent(null, 'idle') }
-    audio.onerror = () => { URL.revokeObjectURL(url); setCurrent(null, 'idle') }
+    if (pendingDone !== (onDone || null)) { URL.revokeObjectURL(url); return } // superseded while loading
+    audio.onended = () => { URL.revokeObjectURL(url); setCurrent(null, 'idle'); settle(true) }
+    audio.onerror = () => { URL.revokeObjectURL(url); setCurrent(null, 'idle'); settle(false) }
+    audio.playbackRate = ttsRate
     await audio.play()
+    audio.playbackRate = ttsRate
     setCurrent(token, 'playing')
   } catch (err) {
     console.warn('[TTS] playback failed', err)
     setCurrent(null, 'idle')
+    settle(false)
   }
 }
 

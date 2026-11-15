@@ -1,8 +1,9 @@
 import { useState, useEffect, useMemo } from "react";
-import { QuickCheck, CategorizeGame, AnimatedVisual, MasteryMap } from "./Engagement.jsx";
 import { TTSButton } from "./TTS.jsx";
 import { Icon, ModuleIcon } from "./icons.jsx";
 import { MODULE_ENHANCEMENTS } from "./data/moduleEnhancements.js";
+import { LESSONS } from "./data/lessons.js";
+import LessonPlayer from "./LessonPlayer.jsx";
 import { track, getUser } from "./tracking.js";
 
 // ─── DESIGN SYSTEM (OneLove "Blue Hour" brand system, ported from BCBA) ──
@@ -3623,48 +3624,6 @@ const Page = ({ children, narrow = false }) => (
   <div style={{ maxWidth: narrow ? 880 : 1120, margin: '0 auto', padding: '32px clamp(16px, 5vw, 40px) 96px', position: 'relative', zIndex: 1 }}>{children}</div>
 );
 
-// Concept-type accents — BCBA's 4-type card system, recolored to the CST warm
-// palette. Cycled across a module's concepts via (conceptIdx % length).
-const CST_CONCEPT_TYPES = [
-  { label:'Core Concept',         icon:'book',  color:'var(--gold)',        bg:'var(--gold-bg)',        border:'var(--accent-border)' },
-  { label:'Key Principles',       icon:'gear',  color:'var(--green-brand)', bg:'var(--green-brand-bg)', border:'var(--green-border)' },
-  { label:'Critical Distinction', icon:'alert', color:'var(--red-brand)',   bg:'var(--red-brand-bg)',   border:'var(--red-border)' },
-  { label:'Exam Strategy',        icon:'bulb',  color:'var(--olive)',       bg:'var(--olive-bg)',       border:'var(--border)' },
-];
-
-// Tap-to-flip key-term card (ported from BCBA, recolored to the warm palette).
-function KeyTermCard({ term, def, color, bg, border }) {
-  const [flipped, setFlipped] = useState(false);
-  return (
-    <div className="kt-card" onClick={() => setFlipped(f => !f)}
-      style={{ cursor:'pointer', minHeight:74, perspective:800, userSelect:'none' }}>
-      <div style={{ position:'relative', width:'100%', minHeight:74, transformStyle:'preserve-3d',
-        transition:'transform .45s cubic-bezier(.4,0,.2,1)',
-        transform: flipped ? 'rotateY(180deg)' : 'rotateY(0deg)' }}>
-        <div style={{ position:'absolute', inset:0, backfaceVisibility:'hidden', WebkitBackfaceVisibility:'hidden',
-          background:bg, border:`1.5px solid ${border}`, borderRadius:10,
-          display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', padding:'8px 12px', minHeight:74 }}>
-          <span style={{ ...baseStyles.cap, fontSize:8, color, letterSpacing:'.12em', marginBottom:5, opacity:.65 }}>tap to define</span>
-          <span style={{ fontFamily:T.serif, fontSize:14, fontWeight:700, color, textAlign:'center', lineHeight:1.3 }}>{term}</span>
-        </div>
-        <div style={{ position:'absolute', inset:0, backfaceVisibility:'hidden', WebkitBackfaceVisibility:'hidden',
-          transform:'rotateY(180deg)', background:'var(--surface-solid)', border:`1.5px solid ${border}`, borderRadius:10,
-          display:'flex', alignItems:'center', justifyContent:'center', padding:'8px 12px', minHeight:74 }}>
-          <span style={{ fontFamily:T.serif, fontSize:12.5, color:T.ink, textAlign:'center', lineHeight:1.5 }}>{def}</span>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-// Categorize games carry per-category hex colors in the content data. Map
-// them to the Blue Hour brand family by position so every game reads as one
-// system in both themes, whatever colors the content author picked.
-const CAT_BRAND = ['var(--gold)', 'var(--green-brand)', 'var(--red-brand)', 'var(--olive)'];
-const brandCategorize = (c) => c && Array.isArray(c.categories)
-  ? { ...c, categories: c.categories.map((cat, i) => ({ ...cat, color: CAT_BRAND[i % CAT_BRAND.length] })) }
-  : c;
-
 // Arrow-key focus movement for role="radiogroup" option lists (roving tabindex).
 const radioGroupKeys = (e) => {
   if (!['ArrowDown', 'ArrowRight', 'ArrowUp', 'ArrowLeft'].includes(e.key)) return;
@@ -4193,110 +4152,15 @@ const ModuleHub = ({ domains, weakDomains, completedModules, onSelect, onSkip })
 // engagement layer (progress dots, Mastery Map, key terms, Quick Check,
 // Categorize), recolored to the CST warm palette. Replaces the old static
 // read-through of the module's concepts.
-const ConceptStudy = ({ domain, conceptProgress, onConceptView, onConceptRate, onBack, onStartPractice }) => {
-  const mod = MODULES[domain];
-  const [conceptIdx, setConceptIdx] = useState(0);
-  const [showMap, setShowMap] = useState(false);
-  const domainProgress = conceptProgress?.[domain] || {};
-  useEffect(() => { onConceptView?.(conceptIdx); }, [conceptIdx, domain]);
-
-  const enh = MODULE_ENHANCEMENTS[domain]?.[conceptIdx] || {};
-  const concept = { ...mod.concepts[conceptIdx], ...enh };
-  const ctype = CST_CONCEPT_TYPES[conceptIdx % CST_CONCEPT_TYPES.length];
-  const isLast = conceptIdx === mod.concepts.length - 1;
-  const go = (d) => setConceptIdx(i => Math.max(0, Math.min(mod.concepts.length - 1, i + d)));
-
-  return (
-    <Page narrow>
-      <button onClick={onBack} style={{ ...baseStyles.cap, fontSize: 10, color: T.muted, background: 'none', border: 'none', cursor: 'pointer', padding: 0, marginBottom: 24 }}>← Back to study plan</button>
-      <Cap color={T.orange2} mb={12}>— Module · Concepts</Cap>
-      <h2 style={{ fontFamily: T.serif, fontWeight: 800, fontSize: 38, color: T.ink, letterSpacing: '-.03em', lineHeight: 1.08, marginBottom: 20 }}>{domain}</h2>
-
-      {/* Progress dots + Mastery Map toggle */}
-      <div style={{ display: 'flex', gap: 6, marginBottom: 18, alignItems: 'center', flexWrap: 'wrap' }}>
-        {mod.concepts.map((_, i) => (
-          <button key={i} onClick={() => setConceptIdx(i)} aria-label={`Go to concept ${i + 1}`}
-            style={{ height: 8, borderRadius: 99, cursor: 'pointer', flexShrink: 0, border: 'none', padding: 0,
-              width: i === conceptIdx ? 28 : 8,
-              background: i <= conceptIdx ? ctype.color : T.hairline,
-              transition: 'all .3s ease' }} />
-        ))}
-        <span style={{ ...baseStyles.cap, fontSize: 10, color: T.muted, marginLeft: 6, flex: 1 }}>{conceptIdx + 1} / {mod.concepts.length}</span>
-        <button onClick={() => setShowMap(s => !s)}
-          style={{ ...baseStyles.cap, fontSize: 10, padding: '6px 12px', borderRadius: 99, border: `1px solid ${ctype.color}`,
-            background: showMap ? ctype.color : 'transparent', color: showMap ? T.paper : ctype.color, cursor: 'pointer' }}>
-          <Icon name="map" size={13}/> Map
-        </button>
-      </div>
-      {showMap && (
-        <div style={{ marginBottom: 20 }}>
-          <MasteryMap domain={domain} concepts={mod.concepts} progress={domainProgress}
-            onJumpTo={(i) => { setConceptIdx(i); setShowMap(false); }} color={ctype.color} />
-        </div>
-      )}
-
-      {/* Concept card */}
-      <div key={`${domain}-${conceptIdx}`} className="concept-in"
-        style={{ borderRadius: 14, overflow: 'hidden', border: `1px solid ${ctype.border}`, boxShadow: 'var(--shadow)', marginBottom: 22 }}>
-        <div style={{ background: ctype.bg, padding: '11px 20px', borderBottom: `1px solid ${ctype.border}`, display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 10 }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-            <Icon name={ctype.icon} size={16}/>
-            <span style={{ ...baseStyles.cap, fontSize: 10, color: ctype.color }}>{ctype.label}</span>
-          </div>
-          <Pill color={ctype.color}>§ {String(conceptIdx + 1).padStart(2, '0')}</Pill>
-        </div>
-
-        <div style={{ background: T.paper3, padding: '24px 26px 22px' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 12, marginBottom: 14 }}>
-            <h3 style={{ fontFamily: T.serif, fontWeight: 600, fontSize: 24, color: T.ink, margin: 0, lineHeight: 1.25, letterSpacing: '-.005em', flex: 1 }}>{concept.title}</h3>
-            <TTSButton token={`mod:${domain}:${conceptIdx}`} text={[concept.title, '. ', concept.body, ...(concept.example ? ['. Applied example: ', concept.example] : [])]} label="Read" size="xs" />
-          </div>
-          <p style={{ fontFamily: T.serif, fontSize: 16, lineHeight: 1.7, color: T.ink, margin: 0 }}>{concept.body}</p>
-
-          {concept.example && (
-            <div style={{ marginTop: 20, background: 'var(--accent-bg)', borderLeft: `4px solid ${T.orange}`, borderRadius: '0 10px 10px 0', padding: '14px 16px' }}>
-              <div style={{ ...baseStyles.cap, fontSize: 10, color: T.orange2, marginBottom: 8, display: 'flex', alignItems: 'center', gap: 5 }}><Icon name="clipboard" size={13}/> Applied Example</div>
-              <p style={{ fontFamily: T.serif, fontSize: 15, lineHeight: 1.65, color: T.ink, margin: 0 }}>{concept.example}</p>
-            </div>
-          )}
-
-          {concept.animatedVisual && (
-            <div style={{ marginTop: 20, background: T.paper, borderRadius: 10, padding: '12px 14px', border: `1px solid ${T.hairline}` }}>
-              <AnimatedVisual kind={concept.animatedVisual} color={ctype.color} />
-            </div>
-          )}
-
-          {concept.keyTerms && concept.keyTerms.length > 0 && (
-            <div style={{ marginTop: 22 }}>
-              <div style={{ ...baseStyles.cap, fontSize: 10, color: T.muted, marginBottom: 10, display: 'flex', alignItems: 'center', gap: 5 }}><Icon name="key" size={13}/> Key Terms · tap to reveal</div>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill,minmax(140px,1fr))', gap: 8 }}>
-                {concept.keyTerms.map((kt, ki) => (
-                  <KeyTermCard key={ki} term={kt.term} def={kt.def} color={ctype.color} bg={ctype.bg} border={ctype.border} />
-                ))}
-              </div>
-            </div>
-          )}
-
-          {concept.quickCheck && (
-            <QuickCheck quickCheck={concept.quickCheck} color={ctype.color} onRate={(rating) => onConceptRate?.(conceptIdx, rating)} />
-          )}
-
-          {concept.categorize && (
-            <CategorizeGame categorize={brandCategorize(concept.categorize)} color={ctype.color} onComplete={(r) => { if (r.correct === r.total) onConceptRate?.(conceptIdx, 'got-it'); }} />
-          )}
-        </div>
-      </div>
-
-      {/* Navigation */}
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 10 }}>
-        <Btn onClick={() => go(-1)} variant="ghost" disabled={conceptIdx === 0} style={{ padding: '13px 24px' }}>← Previous</Btn>
-        {isLast
-          ? <Btn onClick={onStartPractice} variant="accent" style={{ padding: '13px 28px' }}>Begin Practice Questions →</Btn>
-          : <Btn onClick={() => go(1)} variant="primary" style={{ padding: '13px 28px' }}>Next Concept →</Btn>}
-      </div>
-    </Page>
-  );
-};
+// Concept study is the lesson player (src/LessonPlayer.jsx): one idea per
+// screen, with a one-page review view. Screen text comes from the generated
+// src/data/lessons.js (scripts/build-lessons.cjs).
+const ConceptStudy = ({ domain, conceptProgress, onConceptView, onConceptRate, onBack, onStartPractice }) => (
+  <LessonPlayer key={domain} domain={domain} concepts={MODULES[domain].concepts}
+    enhancements={MODULE_ENHANCEMENTS[domain]} lessons={LESSONS[domain]}
+    progress={conceptProgress?.[domain] || {}}
+    onConceptView={onConceptView} onConceptRate={onConceptRate} onBack={onBack} onStartPractice={onStartPractice} />
+);
 
 const LearningModule = ({ domain, phase, pqIndex, pAnswers, onPAnswer, onBack, onStartPractice, onFinish, conceptProgress, onConceptView, onConceptRate }) => {
   const mod = MODULES[domain];
