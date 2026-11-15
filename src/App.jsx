@@ -3801,7 +3801,7 @@ const NAV_ITEMS = [
   { id: 'cresponse',  label: 'Constructed Response', icon: 'doc', always: true },
   { id: 'progress',   label: 'My Progress', icon: 'compass', always: true },
   { id: 'results',    label: 'Results',  icon: 'chart',     needs: 'pretestScores' },
-  { id: 'modules',    label: 'Study',    icon: 'book',      needs: 'pretestScores' },
+  { id: 'modules',    label: 'Study',    icon: 'book',      always: true },
   { id: 'posttest',   label: 'Post-Test', icon: 'flag',     needs: 'pretestScores' },
   { id: 'comparison', label: 'Report',   icon: 'gradcap',   needs: 'postScores' },
 ];
@@ -4105,7 +4105,7 @@ const Results = ({ scores, weakDomains, onContinue, isPost, pretestScores, sourc
 };
 
 // ─── MODULE HUB + LEARNING MODULE ──────────────────────────
-const ModuleHub = ({ domains, weakDomains, completedModules, onSelect, onSkip }) => {
+const ModuleHub = ({ domains, weakDomains, completedModules, onSelect, onSkip, hasPretest, onPretest }) => {
   const weakDone = weakDomains.every(d => completedModules.includes(d));
   return (
   <Page narrow>
@@ -4113,7 +4113,7 @@ const ModuleHub = ({ domains, weakDomains, completedModules, onSelect, onSkip })
       <Cap color={T.orange2} mb={8}>The Course of Study</Cap>
       <h2 style={{ fontFamily: T.sans, fontWeight: 800, fontSize: '2rem', color: T.ink, letterSpacing: '-.02em', margin: 0 }}>Your Study Plan</h2>
       <p style={{ fontFamily: T.sans, fontSize: 15, color: T.muted, marginTop: 10, maxWidth: 560, marginLeft: 'auto', marginRight: 'auto', lineHeight: 1.5 }}>
-        {weakDomains.length > 0 ? 'Modules flagged from your pretest are listed first — start there. Every module is open to study.' : 'No domains fell below 70% on your pretest. Study any module, or proceed to the post-test.'}
+        {!hasPretest ? 'Every module is open. Take the pretest to see which modules to study first.' : weakDomains.length > 0 ? 'Modules flagged from your pretest are listed first. Start there. Every module is open to study.' : 'No domains fell below 70% on your pretest. Study any module, or proceed to the post-test.'}
       </p>
     </header>
     <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
@@ -4142,7 +4142,9 @@ const ModuleHub = ({ domains, weakDomains, completedModules, onSelect, onSkip })
     </div>
     <div style={{ marginTop: 28, textAlign: 'center' }}>
       <p style={{ fontFamily: T.sans, fontSize: 12, fontWeight: 600, color: T.muted, marginBottom: 14 }}>{completedModules.length} of {domains.length} modules completed{weakDomains.length > 0 ? ` · ${weakDomains.filter(d => completedModules.includes(d)).length} of ${weakDomains.length} flagged` : ''}</p>
-      <Btn onClick={onSkip} variant={weakDone ? 'accent' : 'ghost'} style={{ padding: '14px 36px' }}>{weakDone ? 'Begin Post-Test →' : 'Skip to Post-Test →'}</Btn>
+      {hasPretest
+        ? <Btn onClick={onSkip} variant={weakDone ? 'accent' : 'ghost'} style={{ padding: '14px 36px' }}>{weakDone ? 'Begin Post-Test →' : 'Skip to Post-Test →'}</Btn>
+        : <Btn onClick={onPretest} variant="ghost" style={{ padding: '14px 36px' }}>Take the Pretest →</Btn>}
     </div>
   </Page>
   );
@@ -5183,7 +5185,7 @@ export default function App() {
       cresponse:  () => up({ phase: 'cresponse',  confirmReset: false }),
       progress:   () => up({ phase: 'progress',   confirmReset: false }),
       results:    () => st.pretestScores && up({ phase: 'results',    confirmReset: false }),
-      modules:    () => st.pretestScores && up({ phase: 'modules',    confirmReset: false }),
+      modules:    () => up({ phase: 'modules',    confirmReset: false }), // open without a pretest; the pretest only orders the plan
       posttest:   () => st.pretestScores && up({ phase: 'posttest',   confirmReset: false, answers: { ...(st.posttestAnswers || {}) }, qIndex: 0, posttestStarted: !!st.posttestStarted || !!st.postScores }),
       comparison: () => st.postScores    && up({ phase: 'comparison', confirmReset: false }),
     };
@@ -5223,7 +5225,7 @@ export default function App() {
   if (st.phase === 'quizDone' && st.quizQs) return <Shell nav={nav}><QuizResults domain={st.quizDomain} qs={st.quizQs} answers={st.quizAnswers} onRetry={() => up({ phase: 'quizRun', quizQs: shuffle(st.quizQs), quizIdx: 0, quizAnswers: {} })} onPick={() => up({ phase: 'quizPicker', quizDomain: null, quizQs: null, quizIdx: 0, quizAnswers: {} })} /></Shell>;
   if (st.phase === 'pretest')    return <Shell nav={nav}><QuestionScreen questions={PRETEST} answers={st.answers} qIndex={st.qIndex} onAnswer={(i, a) => { const next = { ...st.answers, [i]: a }; up({ answers: next, pretestAnswers: next }); }} onNav={(d) => up({ qIndex: Math.max(0, Math.min(PRETEST.length - 1, st.qIndex + d)) })} onSubmit={() => { const s = calcScores(PRETEST, st.answers); const sum = scoreSummary(s); const logs = logAnswers(st.answerLog, st.missBank, PRETEST, st.answers); up({ phase: 'results', pretestScores: s, pretestAnswers: { ...st.answers }, attempts: [...(st.attempts || []), { kind: 'pretest', pct: sum.overallPct, wpct: weightedPct(s.subtests) ?? sum.overallPct, ts: new Date().toISOString() }].slice(-ATTEMPT_CAP), ...logs }); track('pretest_completed', { ...sum, byDomain: byDomainPct(PRETEST, st.answers), weak: Object.entries(s.domains).filter(([, v]) => pct(v.correct, v.total) < 70).map(([d]) => d) }); }} phase="Pretest" /></Shell>;
   if (st.phase === 'results')    return <Shell nav={nav}><Results scores={st.pretestScores} weakDomains={weak} sourceQuestions={PRETEST} sourceAnswers={st.pretestAnswers} onContinue={() => up({ phase: 'modules' })} /></Shell>;
-  if (st.phase === 'modules')    return <Shell nav={nav}><ModuleHub domains={[...weak, ...Object.keys(MODULES).filter(d => !weak.includes(d))]} weakDomains={weak} completedModules={st.completedModules} onSelect={(d) => up({ phase: 'module', activeModule: d, modPhase: 'content', modPQIndex: 0, modPAnswers: {} })} onSkip={() => up({ phase: 'posttest', posttestStarted: false })} /></Shell>;
+  if (st.phase === 'modules')    return <Shell nav={nav}><ModuleHub domains={[...weak, ...Object.keys(MODULES).filter(d => !weak.includes(d))]} weakDomains={weak} completedModules={st.completedModules} onSelect={(d) => up({ phase: 'module', activeModule: d, modPhase: 'content', modPQIndex: 0, modPAnswers: {} })} onSkip={() => up({ phase: 'posttest', posttestStarted: false })} hasPretest={!!st.pretestScores} onPretest={() => up({ phase: 'pretest', answers: { ...(st.pretestAnswers || {}) }, qIndex: 0 })} /></Shell>;
   if (st.phase === 'module')     return <Shell nav={nav}><LearningModule domain={st.activeModule} phase={st.modPhase} pqIndex={st.modPQIndex} pAnswers={st.modPAnswers} conceptProgress={st.conceptProgress} onConceptView={(idx) => setSt(p => { const dom = p.activeModule; const cur = p.conceptProgress?.[dom] || {}; if (cur[idx]?.viewed) return p; return { ...p, conceptProgress: { ...p.conceptProgress, [dom]: { ...cur, [idx]: { ...(cur[idx] || {}), viewed: true } } } }; })} onConceptRate={(idx, rating) => setSt(p => { const dom = p.activeModule; const cur = p.conceptProgress?.[dom] || {}; return { ...p, conceptProgress: { ...p.conceptProgress, [dom]: { ...cur, [idx]: { ...(cur[idx] || {}), viewed: true, rating } } } }; })} onBack={() => up({ phase: 'modules' })} onStartPractice={() => up({ modPhase: 'practice' })} onPAnswer={(i, a) => { if (i === 'next') { up({ modPQIndex: st.modPQIndex + 1 }); return; } up({ modPAnswers: { ...st.modPAnswers, [i]: a } }); }} onFinish={() => { const dom = st.activeModule; const practice = MODULES[dom]?.practice || []; const score = practice.length ? pct(practice.filter((q, i) => st.modPAnswers[i] === q.c).length, practice.length) : 0; const prog = st.conceptProgress?.[dom] || {}; track('module_completed', { domain: dom, practicePct: score, mastered: Object.values(prog).filter(p => p?.rating === 'got-it').length, concepts: (MODULES[dom]?.concepts || []).length }); const pqs = practice.map(p2 => ({ ...p2, d: dom, s: p2.s || domainSubtest(dom) })); const logs = logAnswers(st.answerLog, st.missBank, pqs, st.modPAnswers); up({ phase: 'modules', completedModules: [...new Set([...st.completedModules, dom])], moduleScores: { ...st.moduleScores, [dom]: score }, ...logs }); }} /></Shell>;
   if (st.phase === 'posttest')   return <Shell nav={nav}>{!st.posttestStarted ? (
     <Page narrow>
