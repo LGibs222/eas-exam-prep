@@ -1,10 +1,11 @@
 import { useState, useEffect, useMemo } from "react";
 import { QuickCheck, CategorizeGame, AnimatedVisual, MasteryMap } from "./Engagement.jsx";
 import { TTSButton } from "./TTS.jsx";
+import { Icon, ModuleIcon } from "./icons.jsx";
 import { MODULE_ENHANCEMENTS } from "./data/moduleEnhancements.js";
 import { track, getUser } from "./tracking.js";
 
-// ─── DESIGN SYSTEM (BCBA "Sunrise" card system · OneLove warm palette) ──
+// ─── DESIGN SYSTEM (OneLove "Blue Hour" brand system, ported from BCBA) ──
 // Theme-switching tokens resolve to CSS variables (defined in GlobalStyles);
 // fixed warm accents stay concrete. Dark mode flips the vars via [data-theme].
 const T = {
@@ -16,7 +17,9 @@ const T = {
   red:'var(--red)', redBg:'var(--red-bg)',
   hairline:'var(--border)',
   glass:'var(--surface)', solid:'var(--surface-solid)', shadow:'var(--shadow)',
-  serif:`Georgia,'Times New Roman',serif`,
+  // Blue Hour sets everything in Plus Jakarta Sans; the serif key is kept so
+  // existing call sites need no change.
+  serif:`'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',sans-serif`,
   sans:`'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',sans-serif`,
 };
 
@@ -2909,9 +2912,9 @@ const ProgressRow = ({ value, label, color = T.orange }) => (
 const Btn = ({ children, onClick, variant = 'primary', disabled = false, style = {} }) => {
   const base = { padding: '13px 26px', fontFamily: T.sans, fontSize: 14, fontWeight: 700, letterSpacing: 0, textTransform: 'none', border: 'none', borderRadius: 99, cursor: disabled ? 'default' : 'pointer', transition: 'transform .2s, box-shadow .2s, filter .2s', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 8, textDecoration: 'none' };
   const variants = {
-    primary: { background: disabled ? T.muted : 'var(--text)', color: 'var(--bg)', boxShadow: disabled ? 'none' : '0 4px 18px rgba(36,26,16,.18)' },
+    primary: { background: disabled ? T.muted : 'var(--text)', color: 'var(--bg)', boxShadow: disabled ? 'none' : '0 4px 18px rgba(23,20,8,.18)' },
     ghost: { background: 'transparent', color: T.ink, border: `1.5px solid ${T.hairline}` },
-    accent: { background: disabled ? T.muted : 'var(--accent)', color: '#fff', boxShadow: disabled ? 'none' : '0 4px 18px rgba(194,83,31,.28)' },
+    accent: { background: disabled ? T.muted : 'var(--gold)', color: 'var(--gold-ink)', boxShadow: disabled ? 'none' : '0 4px 18px rgba(168,127,16,.28)' },
   };
   return <button onClick={disabled ? undefined : onClick} disabled={disabled} className={disabled ? '' : 'btn-cta'} style={{ ...base, ...variants[variant], ...style }}>{children}</button>;
 };
@@ -2922,10 +2925,10 @@ const Page = ({ children, narrow = false }) => (
 // Concept-type accents — BCBA's 4-type card system, recolored to the CST warm
 // palette. Cycled across a module's concepts via (conceptIdx % length).
 const CST_CONCEPT_TYPES = [
-  { label:'Core Concept',         icon:'📖', color:'#a14a1f', bg:'#fdf8e9', border:'#e3c9a8' },
-  { label:'Key Principles',       icon:'⚙️',  color:'#3d6b3d', bg:'#dde9d8', border:'#b6cdb0' },
-  { label:'Critical Distinction', icon:'⚠️', color:'#8a5a1f', bg:'#f6ecd2', border:'#dcc290' },
-  { label:'Exam Strategy',        icon:'💡', color:'#6f3047', bg:'#f0e0e6', border:'#d3aebb' },
+  { label:'Core Concept',         icon:'book',  color:'var(--gold)',        bg:'var(--gold-bg)',        border:'var(--accent-border)' },
+  { label:'Key Principles',       icon:'gear',  color:'var(--green-brand)', bg:'var(--green-brand-bg)', border:'var(--green-border)' },
+  { label:'Critical Distinction', icon:'alert', color:'var(--red-brand)',   bg:'var(--red-brand-bg)',   border:'var(--red-border)' },
+  { label:'Exam Strategy',        icon:'bulb',  color:'var(--olive)',       bg:'var(--olive-bg)',       border:'var(--border)' },
 ];
 
 // Tap-to-flip key-term card (ported from BCBA, recolored to the warm palette).
@@ -2953,6 +2956,14 @@ function KeyTermCard({ term, def, color, bg, border }) {
   );
 }
 
+// Categorize games carry per-category hex colors in the content data. Map
+// them to the Blue Hour brand family by position so every game reads as one
+// system in both themes, whatever colors the content author picked.
+const CAT_BRAND = ['var(--gold)', 'var(--green-brand)', 'var(--red-brand)', 'var(--olive)'];
+const brandCategorize = (c) => c && Array.isArray(c.categories)
+  ? { ...c, categories: c.categories.map((cat, i) => ({ ...cat, color: CAT_BRAND[i % CAT_BRAND.length] })) }
+  : c;
+
 // Arrow-key focus movement for role="radiogroup" option lists (roving tabindex).
 const radioGroupKeys = (e) => {
   if (!['ArrowDown', 'ArrowRight', 'ArrowUp', 'ArrowLeft'].includes(e.key)) return;
@@ -2968,49 +2979,92 @@ const radioGroupKeys = (e) => {
 // rules go in this one global stylesheet instead.
 const GlobalStyles = () => (
   <style>{`
-    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,900;1,9..144,900&display=swap');
+    /* "Blue Hour" theme, OneLove brand system (locked 2026-08-12, ported
+       from the BCBA app). Black is the ground, gold is the single accent,
+       green and red carry meaning only (passed / needs work). Day = cream
+       under a golden dawn; Night = warm black deepening into forest green.
+       The EAS engine's var names (--accent, --surface-2, --berry, --sage)
+       are kept as aliases into the brand family. */
     :root {
-      --bg-base:#f4ecd9; --bg:var(--bg-base);
-      --surface:rgba(255,251,242,0.82); --surface-2:rgba(255,251,242,0.55); --surface-solid:#fffdf6;
-      --text:#241a10; --muted:#6e6353; --border:#e6d8bf;
-      --accent:#c2531f; --accent-2:#a14a1f; --accent-bg:#f6e2cf;
-      --green:#5a7a52; --green-bg:#e6eddd; --green-border:rgba(90,122,82,.4);
-      --red:#a8453a; --red-bg:#f4ddd6; --red-border:rgba(168,69,58,.4);
-      --gold:#b18432; --berry:#6f3047; --sage:#5a7a52;
-      --shadow:0 4px 24px rgba(36,26,16,0.08);
+      --bg-base:#f5f1e4; --bg:var(--bg-base);
+      --gold:#a87f10; --gold-2:#c49a2a; --gold-bg:#f0e5c2; --gold-ink:#fff8e8;
+      --green-brand:#2e7d46; --green-deep:#1f5c33; --green-brand-bg:#ddeade;
+      --red-brand:#b03a26; --red-brand-bg:#f2ddd6;
+      --olive:#7d774a; --olive-bg:#e9e6d0;
+      --sky0:#dfe4d2; --sky1:#f5efdc; --sky2:#f2ddb0;
+      --ridge-1:#b8c4a8; --ridge-2:#9aab8c;
+      --glow:rgba(168,127,16,0.28); --star:transparent;
+      --surface:rgba(253,251,242,0.82); --surface-2:rgba(253,251,242,0.55); --surface-solid:#fdfbf2;
+      --text:#171408; --muted:#5c5340; --border:rgba(23,20,8,0.15);
+      --accent:var(--gold); --accent-2:var(--gold); --accent-bg:var(--gold-bg); --accent-border:rgba(168,127,16,0.45);
+      --green:var(--green-brand); --green-bg:var(--green-brand-bg); --green-border:rgba(46,125,70,0.45);
+      --red:var(--red-brand); --red-bg:var(--red-brand-bg); --red-border:rgba(176,58,38,0.45);
+      --berry:var(--green-deep); --sage:var(--green-brand);
+      --on-fill:#fdfbf2;
+      --shadow:0 4px 24px rgba(23,20,8,0.08);
     }
     :root[data-theme="dark"] {
-      --bg-base:#1c150e;
-      --surface:rgba(255,246,232,0.06); --surface-2:rgba(255,246,232,0.04); --surface-solid:#2a2017;
-      --text:#f3ece0; --muted:#c7b69a; --border:rgba(255,246,232,0.12);
-      --accent:#e07a3f; --accent-2:#e0a071; --accent-bg:rgba(224,122,63,.16);
-      --green:#a8c8a0; --green-bg:rgba(168,200,160,.14); --green-border:rgba(168,200,160,.4);
-      --red:#e0928a; --red-bg:rgba(224,146,138,.14); --red-border:rgba(224,146,138,.4);
-      --gold:#d8a754; --berry:#b07088; --sage:#a8c8a0;
-      --shadow:0 6px 28px rgba(0,0,0,0.5);
+      --bg-base:#121108;
+      --gold:#e0a92e; --gold-2:#c9962a; --gold-bg:rgba(224,169,46,0.14); --gold-ink:#241a04;
+      --green-brand:#67a878; --green-deep:#4f8f63; --green-brand-bg:rgba(103,168,120,0.14);
+      --red-brand:#d05a40; --red-brand-bg:rgba(208,90,64,0.14);
+      --olive:#b0ab7a; --olive-bg:rgba(176,171,122,0.14);
+      --sky0:#0b0a06; --sky1:#101b10; --sky2:#1e3a24;
+      --ridge-1:#16281a; --ridge-2:#0b130d;
+      --glow:rgba(224,169,46,0.3); --star:rgba(240,234,216,0.65);
+      --surface:rgba(240,234,216,0.05); --surface-2:rgba(240,234,216,0.04); --surface-solid:#1b1a10;
+      --text:#f0ead8; --muted:#97927b; --border:rgba(240,234,216,0.12);
+      --accent-border:rgba(224,169,46,0.4);
+      --green-border:rgba(103,168,120,0.4);
+      --red-border:rgba(208,90,64,0.4);
+      --on-fill:#121108;
+      --shadow:0 4px 24px rgba(0,0,0,0.5);
     }
     html, body {
       margin:0; color:var(--text);
       font-family:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
       -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
       background:
-        radial-gradient(ellipse 80% 50% at 50% 0%, rgba(194,83,31,.12), transparent 70%),
-        radial-gradient(ellipse 60% 50% at 100% 30%, rgba(177,132,50,.12), transparent 70%),
-        radial-gradient(ellipse 60% 50% at 0% 100%, rgba(111,48,71,.10), transparent 70%),
+        radial-gradient(ellipse 80% 45% at 50% 0%, rgba(168,127,16,0.10), transparent 70%),
+        radial-gradient(ellipse 60% 50% at 0% 100%, rgba(46,125,70,0.07), transparent 70%),
         var(--bg-base);
       background-attachment:fixed;
       transition:background .3s ease, color .3s ease;
     }
     :root[data-theme="dark"] html, :root[data-theme="dark"] body {
       background:
-        radial-gradient(ellipse 80% 50% at 50% 0%, rgba(224,122,63,.10), transparent 70%),
-        radial-gradient(ellipse 60% 50% at 100% 30%, rgba(216,167,84,.08), transparent 70%),
-        radial-gradient(ellipse 60% 50% at 0% 100%, rgba(176,112,136,.08), transparent 70%),
+        radial-gradient(ellipse 80% 45% at 50% 0%, rgba(16,27,16,0.9), transparent 75%),
+        radial-gradient(ellipse 50% 40% at 85% 100%, rgba(224,169,46,0.07), transparent 70%),
         var(--bg-base);
     }
+    /* Blue Hour atmosphere (welcome hero): dusk sky into the page ground,
+       two ridgelines, a lamplight glow, stars at night only. */
+    .atmo { position:absolute; top:0; left:0; right:0; height:520px; z-index:0; pointer-events:none;
+      background:linear-gradient(180deg, var(--sky0) 0%, var(--sky1) 46%, var(--sky2) 78%, transparent 100%); }
+    .atmo-stars { position:absolute; inset:0 0 30% 0;
+      background-image:
+        radial-gradient(1px 1px at 12% 18%, var(--star), transparent),
+        radial-gradient(1px 1px at 34% 9%, var(--star), transparent),
+        radial-gradient(1.5px 1.5px at 58% 14%, var(--star), transparent),
+        radial-gradient(1px 1px at 79% 7%, var(--star), transparent),
+        radial-gradient(1px 1px at 90% 22%, var(--star), transparent),
+        radial-gradient(1px 1px at 68% 28%, var(--star), transparent),
+        radial-gradient(1px 1px at 22% 32%, var(--star), transparent); }
+    .atmo-glow { position:absolute; right:-60px; top:150px; width:480px; height:300px;
+      background:radial-gradient(closest-side, var(--glow), transparent 72%); }
+    .atmo-ridge1 { position:absolute; left:0; right:0; top:320px; height:130px; background:var(--ridge-1); opacity:0.5;
+      clip-path:polygon(0 100%, 0 62%, 12% 38%, 22% 58%, 34% 22%, 46% 55%, 58% 30%, 70% 62%, 82% 40%, 92% 66%, 100% 52%, 100% 100%);
+      -webkit-mask-image:linear-gradient(180deg, black 55%, transparent 100%); mask-image:linear-gradient(180deg, black 55%, transparent 100%); }
+    .atmo-ridge2 { position:absolute; left:0; right:0; top:372px; height:88px; background:var(--ridge-2); opacity:0.55;
+      clip-path:polygon(0 100%, 0 55%, 15% 75%, 28% 45%, 41% 78%, 55% 50%, 68% 80%, 81% 55%, 100% 74%, 100% 100%);
+      -webkit-mask-image:linear-gradient(180deg, black 45%, transparent 100%); mask-image:linear-gradient(180deg, black 45%, transparent 100%); }
     .ol-split { display: grid; grid-template-columns: 1fr 1px 1fr; }
     .ol-grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
     @media (max-width: 760px) {
+      .ol-navrow { flex-wrap: nowrap !important; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+      .ol-navrow::-webkit-scrollbar { display: none; }
+      .ol-navrow button { white-space: nowrap; flex-shrink: 0; }
       .ol-split { grid-template-columns: 1fr; }
       .ol-split .ol-vrule { display: none; }
       .ol-grid2 { grid-template-columns: 1fr; }
@@ -3023,16 +3077,14 @@ const GlobalStyles = () => (
     .fade-up-1{animation-delay:.05s}.fade-up-2{animation-delay:.13s}.fade-up-3{animation-delay:.21s}
     .fade-up-4{animation-delay:.29s}.fade-up-5{animation-delay:.37s}.fade-up-6{animation-delay:.45s}
     .lift { transition: transform .25s cubic-bezier(.2,.7,.2,1), box-shadow .25s, border-color .25s; }
-    .lift:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(36,26,16,.13); }
+    .lift:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(23,20,8,.13); }
     .btn-cta { } .btn-cta:hover { transform: translateY(-1px); filter: brightness(1.03); }
     .cta-arrow { display:inline-block; transition: transform .25s cubic-bezier(.2,.7,.2,1); }
     .btn-cta:hover .cta-arrow { transform: translateX(4px); }
-    @keyframes orbDrift { 0%,100%{transform:translate(0,0);} 50%{transform:translate(8px,-12px);} }
-    .welcome-orb { position:absolute; border-radius:50%; filter:blur(60px); pointer-events:none; z-index:0; animation:orbDrift 15s ease-in-out infinite; }
     @keyframes shimmer { 0%,100%{background-position:0% 50%;} 50%{background-position:100% 50%;} }
-    .greeting-accent { background:linear-gradient(90deg,var(--accent) 0%,var(--berry) 50%,var(--gold) 100%); background-size:200% 100%; -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; animation:shimmer 8s ease-in-out infinite; }
+    .greeting-accent { background:linear-gradient(90deg,var(--gold-2) 0%,var(--gold) 55%,var(--green-brand) 130%); background-size:200% 100%; -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; animation:shimmer 8s ease-in-out infinite; }
     @media (prefers-reduced-motion: reduce) {
-      .fade-up,.welcome-orb,.greeting-accent,.concept-in { animation:none !important; }
+      .fade-up,.greeting-accent,.concept-in { animation:none !important; }
       .fade-up { opacity:1 !important; transform:none !important; }
       .lift,.btn-cta,.cta-arrow { transition:none !important; }
     }
@@ -3041,15 +3093,16 @@ const GlobalStyles = () => (
 
 // ─── ONE LOVE BRAND ────────────────────────────────────────
 const OneLoveLogo = ({ height = 26, dark = true }) => {
-  const inkColor = dark ? '#f6efe0' : 'var(--text)';
-  const heartColor = dark ? '#e07a3f' : '#c2531f';
+  // Token-based so the wordmark is legible on any themed surface.
+  const inkColor = 'var(--text)';
+  const heartColor = 'var(--red-brand)';
   return (
     <svg height={height} viewBox="0 0 380 80" xmlns="http://www.w3.org/2000/svg" aria-label="One Love" style={{ display: 'block' }}>
-      <text x="170" y="60" textAnchor="end" fontFamily={T.serif} fontWeight="900" fontSize="54" letterSpacing="-1.2" fill={inkColor}>One</text>
+      <text x="170" y="60" textAnchor="end" fontFamily="Fraunces, Georgia, serif" fontWeight="900" fontSize="54" letterSpacing="-1.2" fill={inkColor}>One</text>
       <g transform="translate(190, 35)">
         <path d="M 10 4 C 10 -2, 4 -6, 0 -2 C -4 -6, -10 -2, -10 4 C -10 11, 0 17, 0 17 C 0 17, 10 11, 10 4 Z" fill={heartColor}/>
       </g>
-      <text x="208" y="60" fontFamily={T.serif} fontWeight="900" fontStyle="italic" fontSize="54" letterSpacing="-1.2" fill={inkColor}>Love</text>
+      <text x="208" y="60" fontFamily="Fraunces, Georgia, serif" fontWeight="900" fontStyle="italic" fontSize="54" letterSpacing="-1.2" fill={inkColor}>Love</text>
     </svg>
   );
 };
@@ -3080,17 +3133,17 @@ const Shell = ({ nav, children }) => (
 
 // ─── NAVBAR ────────────────────────────────────────────────
 const NAV_ITEMS = [
-  { id: 'welcome',    label: 'Home',     always: true },
-  { id: 'flashcards', label: 'Cards',    always: true },
-  { id: 'quiz',       label: 'Quiz',     always: true },
-  { id: 'mock',       label: 'Mock Exam', always: true },
-  { id: 'pretest',    label: 'Pretest',  always: true },
-  { id: 'cresponse',  label: 'Constructed Response', always: true },
-  { id: 'progress',   label: 'My Progress', always: true },
-  { id: 'results',    label: 'Results',  needs: 'pretestScores' },
-  { id: 'modules',    label: 'Study',    needs: 'pretestScores' },
-  { id: 'posttest',   label: 'Post-Test',needs: 'pretestScores' },
-  { id: 'comparison', label: 'Report',   needs: 'postScores' },
+  { id: 'welcome',    label: 'Home',     icon: 'home',      always: true },
+  { id: 'flashcards', label: 'Cards',    icon: 'cards',     always: true },
+  { id: 'quiz',       label: 'Quiz',     icon: 'target',    always: true },
+  { id: 'mock',       label: 'Mock Exam', icon: 'timer',    always: true },
+  { id: 'pretest',    label: 'Pretest',  icon: 'clipboard', always: true },
+  { id: 'cresponse',  label: 'Constructed Response', icon: 'doc', always: true },
+  { id: 'progress',   label: 'My Progress', icon: 'compass', always: true },
+  { id: 'results',    label: 'Results',  icon: 'chart',     needs: 'pretestScores' },
+  { id: 'modules',    label: 'Study',    icon: 'book',      needs: 'pretestScores' },
+  { id: 'posttest',   label: 'Post-Test', icon: 'flag',     needs: 'pretestScores' },
+  { id: 'comparison', label: 'Report',   icon: 'gradcap',   needs: 'postScores' },
 ];
 const NavBar = ({ st, onNav, onReset, onConfirmReset, onCancelReset, onToggleTheme }) => {
   const active = st.phase === 'module' ? 'modules'
@@ -3098,21 +3151,21 @@ const NavBar = ({ st, onNav, onReset, onConfirmReset, onCancelReset, onToggleThe
     : st.phase === 'reviewMisses' ? 'progress'
     : st.phase;
   return (
-    <div style={{ background: '#241a10', position: 'sticky', top: 0, zIndex: 200, boxShadow: '0 2px 14px rgba(36,26,16,0.22)' }}>
-      <div style={{ maxWidth: 1120, margin: '0 auto', padding: '9px clamp(12px, 4vw, 40px) 7px', borderBottom: '1px solid rgba(246,239,224,0.10)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+    <div style={{ background: 'var(--surface-solid)', position: 'sticky', top: 0, zIndex: 200, borderBottom: `1px solid ${T.hairline}`, boxShadow: 'var(--shadow)' }}>
+      <div style={{ maxWidth: 1120, margin: '0 auto', padding: '9px clamp(12px, 4vw, 40px) 7px', borderBottom: `1px solid ${T.hairline}`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         <button onClick={() => onNav('welcome')} style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer' }} aria-label="Home">
-          <OneLoveLogo height={22} dark={true}/>
+          <OneLoveLogo height={24}/>
         </button>
       </div>
       <div style={{ maxWidth: 1120, margin: '0 auto', padding: '7px clamp(12px, 4vw, 40px) 9px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 16 }}>
-        <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 4, flex: 1 }}>
+        <div className="ol-navrow" style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 4, flex: 1, minWidth: 0 }}>
           {NAV_ITEMS.map(item => {
             const avail = item.always || !!st[item.needs];
             const isActive = active === item.id;
             return (
               <button key={item.id} onClick={() => avail && onNav(item.id)} disabled={!avail}
-                style={{ fontFamily: T.sans, fontSize: 11, fontWeight: 700, color: isActive ? '#241a10' : (avail ? '#f0e7d6' : 'rgba(240,231,214,0.4)'), padding: '5px 11px', borderRadius: 99, background: isActive ? '#f6efe0' : 'transparent', border: 'none', cursor: avail ? 'pointer' : 'default', whiteSpace: 'nowrap', transition: 'all .2s' }}>
-                {item.label}
+                style={{ fontFamily: T.sans, fontSize: 11, fontWeight: 700, color: isActive ? 'var(--gold-ink)' : (avail ? T.ink : T.muted), opacity: avail ? 1 : 0.55, display: 'inline-flex', alignItems: 'center', gap: 5, padding: '5px 11px', borderRadius: 99, background: isActive ? 'var(--gold)' : 'transparent', border: 'none', cursor: avail ? 'pointer' : 'default', whiteSpace: 'nowrap', transition: 'all .2s' }}>
+                <Icon name={item.icon} size={13}/>{item.label}
               </button>
             );
           })}
@@ -3120,15 +3173,15 @@ const NavBar = ({ st, onNav, onReset, onConfirmReset, onCancelReset, onToggleThe
         <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexShrink: 0 }}>
           <button onClick={onToggleTheme} title={st.theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
             aria-label={st.theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
-            style={{ padding: '4px 9px', borderRadius: 99, border: '1px solid rgba(246,239,224,0.2)', background: 'transparent', color: '#f0e7d6', cursor: 'pointer', fontSize: 13, lineHeight: 1 }}>
-            {st.theme === 'dark' ? '☀️' : '🌙'}
+            style={{ padding: '4px 9px', borderRadius: 99, border: `1px solid ${T.hairline}`, background: 'transparent', color: T.ink, cursor: 'pointer', fontSize: 13, lineHeight: 1 }}>
+            <Icon name={st.theme === 'dark' ? 'sun' : 'moon'} size={14}/>
           </button>
           {!st.confirmReset
-            ? <button onClick={onReset} style={{ fontFamily: T.sans, fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.08em', color: '#e0928a', background: 'none', border: 'none', cursor: 'pointer' }}>Reset</button>
+            ? <button onClick={onReset} style={{ fontFamily: T.sans, fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '.08em', color: T.red, background: 'none', border: 'none', cursor: 'pointer' }}>Reset</button>
             : <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                <span style={{ fontFamily: T.sans, fontSize: 9, color: '#c7b69a' }}>Start over?</span>
-                <button onClick={onConfirmReset} style={{ fontFamily: T.sans, fontSize: 9, fontWeight: 700, color: '#fff', background: '#a8453a', padding: '3px 8px', borderRadius: 6, border: 'none', cursor: 'pointer' }}>Yes</button>
-                <button onClick={onCancelReset} style={{ fontFamily: T.sans, fontSize: 9, color: '#c7b69a', background: 'none', padding: '3px 8px', borderRadius: 6, border: '1px solid rgba(246,239,224,0.25)', cursor: 'pointer' }}>No</button>
+                <span style={{ fontFamily: T.sans, fontSize: 9, color: T.red }}>Start over?</span>
+                <button onClick={onConfirmReset} style={{ fontFamily: T.sans, fontSize: 9, fontWeight: 700, color: 'var(--on-fill)', background: T.red, padding: '3px 8px', borderRadius: 6, border: 'none', cursor: 'pointer' }}>Yes</button>
+                <button onClick={onCancelReset} style={{ fontFamily: T.sans, fontSize: 9, color: T.muted, background: 'none', padding: '3px 8px', borderRadius: 6, border: `1px solid ${T.hairline}`, cursor: 'pointer' }}>No</button>
               </div>}
         </div>
       </div>
@@ -3138,9 +3191,15 @@ const NavBar = ({ st, onNav, onReset, onConfirmReset, onCancelReset, onToggleThe
 
 // ─── WELCOME ───────────────────────────────────────────────
 const Welcome = ({ onStart }) => (
+  <div style={{ position: 'relative', overflow: 'hidden' }}>
+  {/* Blue Hour atmosphere: dusk sky, stars (night only), ridgelines, lamplight glow */}
+  <div className="atmo" aria-hidden="true">
+    <div className="atmo-stars"/>
+    <div className="atmo-glow"/>
+    <div className="atmo-ridge1"/>
+    <div className="atmo-ridge2"/>
+  </div>
   <Page>
-    <div className="welcome-orb" style={{ top: -70, right: -50, width: 300, height: 300, background: 'radial-gradient(circle, rgba(194,83,31,.18) 0%, transparent 70%)' }} />
-    <div className="welcome-orb" style={{ top: '40%', left: -110, width: 320, height: 320, background: 'radial-gradient(circle, rgba(177,132,50,.16) 0%, transparent 70%)', animationDelay: '-5s' }} />
 
     {/* Hero */}
     <header className="fade-up fade-up-1" style={{ textAlign: 'center', padding: '20px 0 34px' }}>
@@ -3220,6 +3279,7 @@ const Welcome = ({ onStart }) => (
       {WELCOME.colophon}
     </div>
   </Page>
+  </div>
 );
 
 // ─── QUESTION SCREEN ───────────────────────────────────────
@@ -3250,7 +3310,7 @@ const QuestionScreen = ({ questions, answers, qIndex, onAnswer, onNav, onSubmit,
             <button key={i} role="radio" aria-checked={isSelected} onClick={() => onAnswer(qIndex, i)}
               tabIndex={isSelected || (selected === undefined && i === 0) ? 0 : -1}
               style={{ textAlign: 'left', padding: '13px 16px', borderRadius: 14, border: `2px solid ${isSelected ? T.orange : T.hairline}`, background: isSelected ? 'var(--accent-bg)' : T.glass, cursor: 'pointer', fontFamily: T.sans, fontSize: 15.5, color: T.ink, transition: 'all .15s', display: 'flex', alignItems: 'center', gap: 13 }}>
-              <span aria-hidden="true" style={{ width: 28, height: 28, borderRadius: '50%', flexShrink: 0, border: `2px solid ${isSelected ? T.orange : T.hairline}`, background: isSelected ? T.orange : 'transparent', color: isSelected ? '#fff' : T.muted, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 13, fontWeight: 800 }}>{['A', 'B', 'C', 'D'][i]}</span>
+              <span aria-hidden="true" style={{ width: 28, height: 28, borderRadius: '50%', flexShrink: 0, border: `2px solid ${isSelected ? T.orange : T.hairline}`, background: isSelected ? T.orange : 'transparent', color: isSelected ? 'var(--on-fill)' : T.muted, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 13, fontWeight: 800 }}>{['A', 'B', 'C', 'D'][i]}</span>
               <span style={{ lineHeight: 1.5 }}>{opt}</span>
             </button>
           );
@@ -3288,8 +3348,8 @@ const ReviewIncorrect = ({ items, onBack }) => {
           const isCorrect = i === q.c;
           const isUser = i === cur.user;
           let bg = T.glass, border = T.hairline, ring = T.hairline, rbg = 'transparent', rfg = T.muted, marker = null;
-          if (isCorrect) { bg = 'var(--green-bg)'; border = 'var(--green-border)'; ring = T.green; rbg = T.green; rfg = '#fff'; marker = <span style={{ fontFamily: T.sans, fontSize: 11, fontWeight: 700, color: T.green, marginLeft: 'auto', whiteSpace: 'nowrap' }}>✓ Correct</span>; }
-          else if (isUser) { bg = 'var(--red-bg)'; border = 'var(--red-border)'; ring = T.red; rbg = T.red; rfg = '#fff'; marker = <span style={{ fontFamily: T.sans, fontSize: 11, fontWeight: 700, color: T.red, marginLeft: 'auto', whiteSpace: 'nowrap' }}>✗ Your answer</span>; }
+          if (isCorrect) { bg = 'var(--green-bg)'; border = 'var(--green-border)'; ring = T.green; rbg = T.green; rfg = 'var(--on-fill)'; marker = <span style={{ fontFamily: T.sans, fontSize: 11, fontWeight: 700, color: T.green, marginLeft: 'auto', whiteSpace: 'nowrap' }}>✓ Correct</span>; }
+          else if (isUser) { bg = 'var(--red-bg)'; border = 'var(--red-border)'; ring = T.red; rbg = T.red; rfg = 'var(--on-fill)'; marker = <span style={{ fontFamily: T.sans, fontSize: 11, fontWeight: 700, color: T.red, marginLeft: 'auto', whiteSpace: 'nowrap' }}>✗ Your answer</span>; }
           return (
             <div key={i} style={{ padding: '12px 16px', borderRadius: 14, border: `2px solid ${border}`, background: bg, fontFamily: T.sans, fontSize: 15, color: T.ink, display: 'flex', alignItems: 'center', gap: 13 }}>
               <span style={{ width: 28, height: 28, borderRadius: '50%', flexShrink: 0, border: `2px solid ${ring}`, background: rbg, color: rfg, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 13, fontWeight: 800 }}>{['A', 'B', 'C', 'D'][i]}</span>
@@ -3321,7 +3381,7 @@ const Results = ({ scores, weakDomains, onContinue, isPost, pretestScores, sourc
   return (
     <Page narrow>
       <header style={{ textAlign: 'center', marginBottom: 26 }}>
-        <div style={{ fontSize: 46, marginBottom: 6 }}>{overallPct >= 70 ? '📈' : '📊'}</div>
+        <div style={{ marginBottom: 6, color: 'var(--gold)' }}><Icon name="chart" size={44} stroke={1.4}/></div>
         <Cap color={T.orange2} mb={8}>{isPost ? 'Post-Test · Final Examination' : 'Pretest · Diagnostic'}</Cap>
         <h2 style={{ fontFamily: T.sans, fontWeight: 800, fontSize: '2rem', color: T.ink, letterSpacing: '-.02em', margin: '0 0 8px' }}>{isPost ? 'Final Results' : 'Diagnostic Results'}</h2>
         <div style={{ fontFamily: T.sans, fontSize: 16, color: T.muted }}>Overall score: <span style={{ color: T.orange2, fontWeight: 800 }}>{overallPct}%</span> ({overall.correct} of {overall.total})</div>
@@ -3403,7 +3463,10 @@ const ModuleHub = ({ domains, weakDomains, completedModules, onSelect, onSkip })
         const flagged = weakDomains.includes(d);
         return (
           <Card key={d} className="lift" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 16, padding: '16px 20px' }}>
-            <div style={{ flex: 1 }}>
+            <div aria-hidden="true" style={{ width: 44, height: 44, borderRadius: 12, flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', background: done ? 'var(--green-bg)' : 'var(--gold-bg)', color: done ? T.green : 'var(--gold)' }}>
+              <ModuleIcon emoji={mod?.icon} size={22}/>
+            </div>
+            <div style={{ flex: 1, minWidth: 0 }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 5, flexWrap: 'wrap' }}>
                 <Cap color={T.muted}>Module {String(i + 1).padStart(2, '0')}</Cap>
                 {done && <Pill color={T.green} bg={T.greenBg}>✓ Completed</Pill>}
@@ -3446,7 +3509,7 @@ const ConceptStudy = ({ domain, conceptProgress, onConceptView, onConceptRate, o
     <Page narrow>
       <button onClick={onBack} style={{ ...baseStyles.cap, fontSize: 10, color: T.muted, background: 'none', border: 'none', cursor: 'pointer', padding: 0, marginBottom: 24 }}>← Back to study plan</button>
       <Cap color={T.orange2} mb={12}>— Module · Concepts</Cap>
-      <h2 style={{ fontFamily: T.serif, fontWeight: 500, fontSize: 38, color: T.ink, letterSpacing: '-.01em', lineHeight: 1.08, marginBottom: 20 }}>{domain}</h2>
+      <h2 style={{ fontFamily: T.serif, fontWeight: 800, fontSize: 38, color: T.ink, letterSpacing: '-.03em', lineHeight: 1.08, marginBottom: 20 }}>{domain}</h2>
 
       {/* Progress dots + Mastery Map toggle */}
       <div style={{ display: 'flex', gap: 6, marginBottom: 18, alignItems: 'center', flexWrap: 'wrap' }}>
@@ -3461,7 +3524,7 @@ const ConceptStudy = ({ domain, conceptProgress, onConceptView, onConceptRate, o
         <button onClick={() => setShowMap(s => !s)}
           style={{ ...baseStyles.cap, fontSize: 10, padding: '6px 12px', borderRadius: 99, border: `1px solid ${ctype.color}`,
             background: showMap ? ctype.color : 'transparent', color: showMap ? T.paper : ctype.color, cursor: 'pointer' }}>
-          🗺 Map
+          <Icon name="map" size={13}/> Map
         </button>
       </div>
       {showMap && (
@@ -3473,10 +3536,10 @@ const ConceptStudy = ({ domain, conceptProgress, onConceptView, onConceptRate, o
 
       {/* Concept card */}
       <div key={`${domain}-${conceptIdx}`} className="concept-in"
-        style={{ borderRadius: 14, overflow: 'hidden', border: `1px solid ${ctype.border}`, boxShadow: '0 4px 18px rgba(22,20,16,0.06)', marginBottom: 22 }}>
+        style={{ borderRadius: 14, overflow: 'hidden', border: `1px solid ${ctype.border}`, boxShadow: 'var(--shadow)', marginBottom: 22 }}>
         <div style={{ background: ctype.bg, padding: '11px 20px', borderBottom: `1px solid ${ctype.border}`, display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 10 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-            <span style={{ fontSize: 16 }} aria-hidden="true">{ctype.icon}</span>
+            <Icon name={ctype.icon} size={16}/>
             <span style={{ ...baseStyles.cap, fontSize: 10, color: ctype.color }}>{ctype.label}</span>
           </div>
           <Pill color={ctype.color}>§ {String(conceptIdx + 1).padStart(2, '0')}</Pill>
@@ -3491,8 +3554,8 @@ const ConceptStudy = ({ domain, conceptProgress, onConceptView, onConceptRate, o
 
           {concept.example && (
             <div style={{ marginTop: 20, background: 'var(--accent-bg)', borderLeft: `4px solid ${T.orange}`, borderRadius: '0 10px 10px 0', padding: '14px 16px' }}>
-              <div style={{ ...baseStyles.cap, fontSize: 10, color: T.orange2, marginBottom: 8, display: 'flex', alignItems: 'center', gap: 5 }}><span aria-hidden="true">📋</span> Applied Example</div>
-              <p style={{ fontFamily: T.serif, fontSize: 15, lineHeight: 1.65, color: T.ink, margin: 0, fontStyle: 'italic' }}>{concept.example}</p>
+              <div style={{ ...baseStyles.cap, fontSize: 10, color: T.orange2, marginBottom: 8, display: 'flex', alignItems: 'center', gap: 5 }}><Icon name="clipboard" size={13}/> Applied Example</div>
+              <p style={{ fontFamily: T.serif, fontSize: 15, lineHeight: 1.65, color: T.ink, margin: 0 }}>{concept.example}</p>
             </div>
           )}
 
@@ -3504,7 +3567,7 @@ const ConceptStudy = ({ domain, conceptProgress, onConceptView, onConceptRate, o
 
           {concept.keyTerms && concept.keyTerms.length > 0 && (
             <div style={{ marginTop: 22 }}>
-              <div style={{ ...baseStyles.cap, fontSize: 10, color: T.muted, marginBottom: 10, display: 'flex', alignItems: 'center', gap: 5 }}><span aria-hidden="true">🔑</span> Key Terms · tap to reveal</div>
+              <div style={{ ...baseStyles.cap, fontSize: 10, color: T.muted, marginBottom: 10, display: 'flex', alignItems: 'center', gap: 5 }}><Icon name="key" size={13}/> Key Terms · tap to reveal</div>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill,minmax(140px,1fr))', gap: 8 }}>
                 {concept.keyTerms.map((kt, ki) => (
                   <KeyTermCard key={ki} term={kt.term} def={kt.def} color={ctype.color} bg={ctype.bg} border={ctype.border} />
@@ -3518,7 +3581,7 @@ const ConceptStudy = ({ domain, conceptProgress, onConceptView, onConceptRate, o
           )}
 
           {concept.categorize && (
-            <CategorizeGame categorize={concept.categorize} color={ctype.color} onComplete={(r) => { if (r.correct === r.total) onConceptRate?.(conceptIdx, 'got-it'); }} />
+            <CategorizeGame categorize={brandCategorize(concept.categorize)} color={ctype.color} onComplete={(r) => { if (r.correct === r.total) onConceptRate?.(conceptIdx, 'got-it'); }} />
           )}
         </div>
       </div>
@@ -3554,9 +3617,9 @@ const LearningModule = ({ domain, phase, pqIndex, pAnswers, onPAnswer, onBack, o
           const showFeedback = pSelected !== undefined;
           const isCorrect = i === pq.c;
           let bg = T.glass, border = T.hairline, ring = T.hairline, rbg = 'transparent', rfg = T.muted;
-          if (showFeedback && isCorrect) { bg = 'var(--green-bg)'; border = 'var(--green-border)'; ring = T.green; rbg = T.green; rfg = '#fff'; }
-          else if (showFeedback && isSelected && !isCorrect) { bg = 'var(--red-bg)'; border = 'var(--red-border)'; ring = T.red; rbg = T.red; rfg = '#fff'; }
-          else if (isSelected) { bg = 'var(--accent-bg)'; border = T.orange; ring = T.orange; rbg = T.orange; rfg = '#fff'; }
+          if (showFeedback && isCorrect) { bg = 'var(--green-bg)'; border = 'var(--green-border)'; ring = T.green; rbg = T.green; rfg = 'var(--on-fill)'; }
+          else if (showFeedback && isSelected && !isCorrect) { bg = 'var(--red-bg)'; border = 'var(--red-border)'; ring = T.red; rbg = T.red; rfg = 'var(--on-fill)'; }
+          else if (isSelected) { bg = 'var(--accent-bg)'; border = T.orange; ring = T.orange; rbg = T.orange; rfg = 'var(--on-fill)'; }
           return (
             <button key={i} role="radio" aria-checked={isSelected} onClick={() => !showFeedback && onPAnswer(pqIndex, i)} disabled={showFeedback}
               tabIndex={isSelected || (pSelected === undefined && i === 0) ? 0 : -1}
@@ -4088,7 +4151,7 @@ const ReviewMisses = ({ items, missBank, onAnswer, onBack }) => {
   if (done || items.length === 0) return (
     <Page narrow>
       <Card style={{ textAlign: 'center', padding: '38px 26px' }}>
-        <div style={{ fontSize: 44, marginBottom: 8 }}>🧹</div>
+        <div style={{ marginBottom: 8, color: 'var(--green)' }}><Icon name="broom" size={42} stroke={1.4}/></div>
         <h2 style={{ fontFamily: T.sans, fontWeight: 800, fontSize: '1.6rem', color: T.ink, margin: '0 0 10px', letterSpacing: '-.02em' }}>Review session complete</h2>
         <p style={{ fontFamily: T.sans, fontSize: 15, color: T.muted, margin: '0 0 22px', lineHeight: 1.55 }}>You've cleared <strong style={{ color: T.green }}>{retired}</strong> of <strong style={{ color: T.ink }}>{bank.length}</strong> misses. A question retires after you answer it correctly twice in a row in review.</p>
         <Btn onClick={onBack} variant="primary" style={{ padding: '13px 30px' }}>← Back to My Progress</Btn>
@@ -4114,8 +4177,8 @@ const ReviewMisses = ({ items, missBank, onAnswer, onBack }) => {
           const isSel = selected === i;
           const isCorrect = i === q.c;
           let border = T.hairline, bg = T.glass, ring = T.hairline, rbg = 'transparent', rfg = T.muted, marker = null;
-          if (revealed && isCorrect) { bg = 'var(--green-bg)'; border = 'var(--green-border)'; ring = T.green; rbg = T.green; rfg = '#fff'; marker = <span style={{ fontFamily: T.sans, fontSize: 11, fontWeight: 700, color: T.green, marginLeft: 'auto', whiteSpace: 'nowrap' }}>✓ Correct</span>; }
-          else if (revealed && isSel) { bg = 'var(--red-bg)'; border = 'var(--red-border)'; ring = T.red; rbg = T.red; rfg = '#fff'; marker = <span style={{ fontFamily: T.sans, fontSize: 11, fontWeight: 700, color: T.red, marginLeft: 'auto', whiteSpace: 'nowrap' }}>✗ Your answer</span>; }
+          if (revealed && isCorrect) { bg = 'var(--green-bg)'; border = 'var(--green-border)'; ring = T.green; rbg = T.green; rfg = 'var(--on-fill)'; marker = <span style={{ fontFamily: T.sans, fontSize: 11, fontWeight: 700, color: T.green, marginLeft: 'auto', whiteSpace: 'nowrap' }}>✓ Correct</span>; }
+          else if (revealed && isSel) { bg = 'var(--red-bg)'; border = 'var(--red-border)'; ring = T.red; rbg = T.red; rfg = 'var(--on-fill)'; marker = <span style={{ fontFamily: T.sans, fontSize: 11, fontWeight: 700, color: T.red, marginLeft: 'auto', whiteSpace: 'nowrap' }}>✗ Your answer</span>; }
           return (
             <button key={i} role="radio" aria-checked={isSel} disabled={revealed}
               onClick={() => { if (revealed) return; setSelected(i); onAnswer(key, i === q.c); }}
@@ -4165,7 +4228,7 @@ const MyProgress = ({ st, onNav, onStudy, onReviewMisses }) => {
   return (
     <Page narrow>
       <header style={{ textAlign: 'center', marginBottom: 26 }}>
-        <div style={{ fontSize: 44, marginBottom: 6 }}>📊</div>
+        <div style={{ marginBottom: 6, color: 'var(--gold)' }}><Icon name="chart" size={42} stroke={1.4}/></div>
         <Cap color={T.orange2} mb={8}>Your Study Report</Cap>
         <h2 style={{ fontFamily: T.sans, fontWeight: 800, fontSize: '2rem', color: T.ink, letterSpacing: '-.02em', margin: 0 }}>My Progress</h2>
         {user && <p style={{ fontFamily: T.sans, fontSize: 15, color: T.muted, marginTop: 8 }}>Signed in as <strong style={{ color: T.ink }}>{user}</strong></p>}
@@ -4218,7 +4281,7 @@ const MyProgress = ({ st, onNav, onStudy, onReviewMisses }) => {
               const total = MODULES[d]?.concepts?.length || 0;
               return (
                 <div key={d} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 10, padding: '7px 0', borderBottom: `1px solid ${T.hairline}`, fontFamily: T.sans, fontSize: 13.5 }}>
-                  <span style={{ color: T.ink, fontWeight: 600, flex: 1 }}>{MODULES[d]?.icon} {d}</span>
+                  <span style={{ color: T.ink, fontWeight: 600, flex: 1, display: 'inline-flex', alignItems: 'center', gap: 8 }}><ModuleIcon emoji={MODULES[d]?.icon} size={16} style={{ color: 'var(--gold)' }}/>{d}</span>
                   <span style={{ color: T.muted, whiteSpace: 'nowrap' }}>{mastered}/{total} mastered</span>
                   {done
                     ? <Pill color={T.green} bg={'var(--green-bg)'}>✓ {score != null ? `${score}%` : 'done'}</Pill>
@@ -4269,8 +4332,8 @@ const MockTimer = ({ deadline, onExpire }) => {
   const low = remaining <= 300; // last 5 min
   return (
     <div role="timer" aria-label={`Time remaining ${fmtClock(remaining)}`}
-      style={{ fontFamily: T.sans, fontWeight: 800, fontSize: 15, fontVariantNumeric: 'tabular-nums', color: low ? '#fff' : T.ink, background: low ? T.red : 'var(--surface-solid)', border: `1.5px solid ${low ? T.red : T.hairline}`, borderRadius: 99, padding: '6px 14px', whiteSpace: 'nowrap' }}>
-      ⏱ {fmtClock(remaining)}
+      style={{ fontFamily: T.sans, fontWeight: 800, fontSize: 15, fontVariantNumeric: 'tabular-nums', color: low ? 'var(--on-fill)' : T.ink, background: low ? T.red : 'var(--surface-solid)', border: `1.5px solid ${low ? T.red : T.hairline}`, borderRadius: 99, padding: '6px 14px', whiteSpace: 'nowrap' }}>
+      <Icon name="clock" size={14} style={{ marginRight: 5 }}/>{fmtClock(remaining)}
     </div>
   );
 };
@@ -4340,7 +4403,7 @@ const MockExam = ({ st, up, finalizeMock }) => {
               <button key={i} role="radio" aria-checked={isSel} onClick={() => up({ mockAnswers: { ...st.mockAnswers, [st.mockIdx]: i } })}
                 tabIndex={isSel || (sel === undefined && i === 0) ? 0 : -1}
                 style={{ textAlign: 'left', padding: '13px 16px', borderRadius: 14, border: `2px solid ${isSel ? T.orange : T.hairline}`, background: isSel ? 'var(--accent-bg)' : T.glass, cursor: 'pointer', fontFamily: T.sans, fontSize: 15.5, color: T.ink, display: 'flex', alignItems: 'center', gap: 13 }}>
-                <span aria-hidden="true" style={{ width: 28, height: 28, borderRadius: '50%', flexShrink: 0, border: `2px solid ${isSel ? T.orange : T.hairline}`, background: isSel ? T.orange : 'transparent', color: isSel ? '#fff' : T.muted, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 13, fontWeight: 800 }}>{['A', 'B', 'C', 'D'][i]}</span>
+                <span aria-hidden="true" style={{ width: 28, height: 28, borderRadius: '50%', flexShrink: 0, border: `2px solid ${isSel ? T.orange : T.hairline}`, background: isSel ? T.orange : 'transparent', color: isSel ? 'var(--on-fill)' : T.muted, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 13, fontWeight: 800 }}>{['A', 'B', 'C', 'D'][i]}</span>
                 <span style={{ lineHeight: 1.5 }}>{opt}</span>
               </button>
             );
@@ -4435,7 +4498,7 @@ const MockReport = ({ s, oPct, scaled, passed, missed, prompts, up }) => {
   return (
     <Page narrow>
       <header style={{ textAlign: 'center', marginBottom: 24 }}>
-        <div style={{ fontSize: 46, marginBottom: 6 }}>{passed ? '🏆' : '📊'}</div>
+        <div style={{ marginBottom: 6, color: passed ? 'var(--green)' : 'var(--gold)' }}><Icon name={passed ? 'trophy' : 'chart'} size={44} stroke={1.4}/></div>
         <Cap color={T.orange2} mb={8}>Timed Mock · Results</Cap>
         <h2 style={{ fontFamily: T.sans, fontWeight: 800, fontSize: '2rem', color: T.ink, letterSpacing: '-.02em', margin: '0 0 8px' }}>Mock Exam Report</h2>
       </header>
@@ -4600,7 +4663,7 @@ export default function App() {
   if (st.phase === 'posttest')   return <Shell nav={nav}>{!st.posttestStarted ? (
     <Page narrow>
       <div className="fade-up fade-up-1" style={{ textAlign: 'center', padding: '56px 0' }}>
-        <div style={{ fontSize: 46, marginBottom: 10 }}>🏁</div>
+        <div style={{ marginBottom: 10, color: 'var(--gold)' }}><Icon name="flag" size={44} stroke={1.4}/></div>
         <Cap color={T.orange2} mb={10}>The Final Examination</Cap>
         <h2 style={{ fontFamily: T.sans, fontWeight: 800, fontSize: 'clamp(2.2rem, 5vw, 3rem)', color: T.ink, letterSpacing: '-.025em', margin: '0 0 16px' }}>The Post-Test</h2>
         <p style={{ fontFamily: T.sans, fontSize: 17, color: T.muted, lineHeight: 1.55, maxWidth: 540, margin: '0 auto 32px' }}>{POSTTEST.length} {WELCOME.posttestIntro}</p>
